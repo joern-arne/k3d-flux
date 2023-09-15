@@ -41,10 +41,11 @@ watch:
 
 .PHONY: k3d-create
 k3d-create:
-	k3d cluster create multiserver --servers 3 --agents 3 -p '80:80@loadbalancer' -p '443:443@loadbalancer'
+	k3d cluster create --config k3d.config.yaml
+#	k3d cluster create multiserver --servers 3 --agents 3 -p '80:80@loadbalancer' -p '443:443@loadbalancer'
 #	kubectl apply -f ../test/traefik-dashboard.yaml
 #	open http://traefik.127.0.0.1.nip.io/dashboard/#/
 
 .PHONY: k3d-delete
 k3d-delete:
-	k3d cluster delete multiserver
+	k3d cluster delete --config k3d.config.yaml
