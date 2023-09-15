@@ -1,12 +1,10 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: whoami
   name: whoami-deployment
   labels:
     app: whoami
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: whoami
@@ -18,14 +16,13 @@ spec:
       containers:
       - name: whoami
         image: traefik/whoami
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         args:
         - --port
         - '8080'
         securityContext:
           readOnlyRootFilesystem: true
           runAsNonRoot: true
-          # Run the container as nobody:nogroup
           runAsUser: 65534
           runAsGroup: 65534
           capabilities:
@@ -45,7 +42,7 @@ spec:
             cpu: "500m"
             memory: "50Mi"
           limits:
-            # cpu:    "750m"
+            cpu: "750m"
             memory: "100Mi"
         ports:
         - name: web

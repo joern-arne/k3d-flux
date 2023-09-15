@@ -8,7 +8,6 @@ spec:
       version: ">=1.0.0-alpha"
   test:
     enable: false
-
   values:
     replicaCount: 2
     ingress:
