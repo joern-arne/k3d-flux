@@ -6,6 +6,10 @@ PATH			:= clusters/multiserver
 KUBECONFIG		:= ~/.kube/config
 KUBECONTEXT		:= k3d-multiserver
 
+.PHONY: build-images
+build-images:
+	$(MAKE) -C images build
+
 .PHONY: bootstrap
 bootstrap:
 	@echo $(shell \
