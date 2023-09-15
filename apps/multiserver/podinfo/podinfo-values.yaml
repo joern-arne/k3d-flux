@@ -1,0 +1,22 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: podinfo
+spec:
+  chart:
+    spec:
+      version: ">=1.0.0-alpha"
+  test:
+    enable: false
+
+  values:
+    replicaCount: 2
+    ingress:
+      enabled: true
+      className: ingress-traefik
+      hosts:
+      - host: podinfo.127.0.0.1.nip.io
+        paths:
+        - path: /
+          pathType: ImplementationSpecific
+        tls: []
