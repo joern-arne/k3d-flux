@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: webserver
+  name: webserver-depl
+  labels:
+    app: webserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver
+  template:
+    metadata:
+      labels:
+        app: webserver
+    spec:
+      containers:
+      - name: webserver-cnt
+        image: k3d-registry.localhost:5500/webserver:latest
+        imagePullPolicy: IfNotPresent
+        # args:
+        #   - --port
+        #   - '8080'
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          # Run the container as nobody:nogroup
+          runAsUser: 65534
+          runAsGroup: 65534
+          capabilities:
+            drop:
+            - ALL
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 3
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "50Mi"
+          limits:
+            # cpu:    "750m"
+            memory: "100Mi"
+        ports:
+        - name: web
+          containerPort: 80
+        volumeMounts:
+        - name: run
+          mountPath: /var/run
+        - name: log
+          mountPath: /var/log/nginx
+        - name: cache
+          mountPath: /var/cache/nginx
+        - name: webserver-cm
+          mountPath: /usr/share/nginx/html
+      volumes:
+      - name: run
+        emptyDir:
+          medium: ""
+      - name: log
+        emptyDir:
+          medium: ""
+      - name: cache
+        emptyDir:
+          medium: ""
+      - name: webserver-cm
+        configMap:
+          name: webserver-configmap

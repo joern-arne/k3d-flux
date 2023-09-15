@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webserver-configmap
+  labels:
+    app: webserver
+data:
+  index.html: "<!doctype html>\n<html>\n  <head>\n    <title>My Example</title>\n  </head>\n  <body>\n    <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>\n    <p>This page is coming from a <strong>configmap</strong> html file from the docker image.</p>\n  </body>\n</html> \n"

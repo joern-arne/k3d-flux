@@ -1,6 +1,6 @@
 .PHONY: build
 build:
-	docker buildx build . -t webserver --load
+	docker buildx build . -t localhost:5500/webserver:latest --push
 
 .PHONY: clean
 clean:
