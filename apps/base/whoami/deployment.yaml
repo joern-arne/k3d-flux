@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: whoami
+  name: whoami-deployment
+  labels:
+    app: whoami
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: whoami
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
+      - name: whoami
+        image: traefik/whoami
+        imagePullPolicy: Always
+        args:
+        - --port
+        - '8080'
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          # Run the container as nobody:nogroup
+          runAsUser: 65534
+          runAsGroup: 65534
+          capabilities:
+            drop:
+            - ALL
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 10
+          timeoutSeconds: 3
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "50Mi"
+          limits:
+            # cpu:    "750m"
+            memory: "100Mi"
+        ports:
+        - name: web
+          containerPort: 8080
