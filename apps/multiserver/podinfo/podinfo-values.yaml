@@ -13,7 +13,7 @@ spec:
     replicaCount: 2
     ingress:
       enabled: true
-      className: ingress-traefik
+      className: traefik
       hosts:
       - host: podinfo.127.0.0.1.nip.io
         paths:
