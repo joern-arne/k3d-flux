@@ -12,11 +12,11 @@ image: rancher/k3s:v1.27.5-k3s1
 # network: multiserver-net
 # subnet: "172.28.0.0/16"
 token: 1B1PkDXQYUu0ONSZ
-# volumes: # repeatable flags are represented as YAML lists
-#   - volume: /my/host/path:/path/in/node # same as `--volume '/my/host/path:/path/in/node@server:0;agent:*'`
-#     nodeFilters:
-#       - server:0
-#       - agent:*
+volumes: # repeatable flags are represented as YAML lists
+- volume: /tmp/k3d-dev-vol:/tmp/k3d-dev-vol
+  nodeFilters:
+  - server:*
+  - agent:*
 ports:
 - port: 80:80 # same as `--port '8080:80@loadbalancer'`
   nodeFilters:

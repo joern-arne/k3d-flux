@@ -2,9 +2,9 @@ GITHUB_OWNER	:= $(shell op item get "GitHub" --fields "GitHub Username")
 GITHUB_TOKEN	:= $(shell op item get "GitHub" --fields token)
 REPO			:= k3d-flux
 # PATH			:= clusters/test-14
-PATH			:= clusters/k3d-dev
+PATH			:= clusters/k3d
 KUBECONFIG		:= ~/.kube/config
-KUBECONTEXT		:= k3d-dev
+KUBECONTEXT		:= k3d
 
 .PHONY: build
 build:
@@ -45,6 +45,8 @@ watch:
 
 .PHONY: k3d-create
 k3d-dev-create:
+	-rm -rf /tmp/k3d-dev-vol
+	mkdir -p /tmp/k3d-dev-vol
 	k3d cluster create --config k3d-dev.config.yaml
 #	k3d cluster create multiserver --servers 3 --agents 3 -p '80:80@loadbalancer' -p '443:443@loadbalancer'
 #	kubectl apply -f ../test/traefik-dashboard.yaml

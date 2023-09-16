@@ -10,7 +10,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./apps/overlays/dev
+  path: ./apps/overlays/k3d-dev
   prune: true
   wait: true
   timeout: 5m0s
