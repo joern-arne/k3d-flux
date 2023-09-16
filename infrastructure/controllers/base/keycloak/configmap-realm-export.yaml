@@ -4776,7 +4776,5 @@ data:
     ]
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2022-06-19T18:54:34Z"
   name: realm-export
-  resourceVersion: "1065405"
-  uid: a4c68244-08da-409e-8b87-0ca6a623cc34
+
