@@ -4,6 +4,6 @@ kind: Kustomization
 resources:
 - weave
 # - cert-manager
-- longhorn
+# - longhorn
 # - pebble
 # - pebble-issuer
