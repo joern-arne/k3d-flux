@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-red
+  labels:
+    app: node-red
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: node-red
+  template:
+    metadata:
+      labels:
+        app: node-red
+      name: node-red
+    spec:
+
+      hostNetwork: true
+
+      initContainers:
+      - name: volume-mount-hack
+        image: busybox
+        command: ["sh", "-c", "chown -R 1000:1000 /data"]
+        volumeMounts:
+        - name: node-red-data
+          mountPath: /data
+
+      containers:
+      - name: node-red
+        image: nodered/node-red:latest
+        ports:
+        - containerPort: 1880
+          name: node-red-ui
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: node-red-data
+          # subPathExpr: $(NODE_NAME)
+          mountPath: /data
+        env:
+        - name: NODE_NAME
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        - name: TZ
+          value: Europe/Berlin
+      volumes:
+      - name: node-red-data
+        persistentVolumeClaim:
+          claimName: node-red-pvc
