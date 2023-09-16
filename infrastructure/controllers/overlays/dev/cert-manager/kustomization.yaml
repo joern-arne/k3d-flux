@@ -7,8 +7,3 @@ resources:
 - ../../../base/cert-manager/bitnami
 patches:
 - path: helm-release-values.yaml
-  # target:
-  #   group: helm.toolkit.fluxcd.io
-  #   version: v2beta1
-  #   kind: HelmRelease
-  #   name: cert-manager
