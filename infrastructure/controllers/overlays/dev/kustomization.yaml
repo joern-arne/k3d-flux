@@ -5,4 +5,4 @@ resources:
 - weave
 - cert-manager
 - pebble
-# - pebble-issuer
+- pebble-issuer
