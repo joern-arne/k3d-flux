@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
 - weave
 - cert-manager
-# - pebble
+- pebble
 # - pebble-issuer
