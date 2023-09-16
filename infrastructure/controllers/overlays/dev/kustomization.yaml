@@ -3,5 +3,6 @@ kind: Kustomization
 # nameSuffix: -dev
 resources:
 - weave
-- pebble
 - cert-manager
+# - pebble
+# - pebble-issuer
