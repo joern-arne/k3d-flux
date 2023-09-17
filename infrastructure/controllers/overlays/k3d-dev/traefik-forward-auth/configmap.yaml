@@ -9,5 +9,5 @@ data:
   AUTH_HOST: auth.127.0.0.1.nip.io
   URL_PATH: /_oauth
   DEFAULT_PROVIDER: oidc
-  ISSUER_URL: https://keycloak.127.0.0.1.nip.io/auth/realms/k3s
+  PROVIDER_URI: https://keycloak.127.0.0.1.nip.io/auth/realms/k3s
   CLIENT_ID: traefik-forward-auth

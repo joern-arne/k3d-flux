@@ -63,11 +63,11 @@ spec:
             configMapKeyRef:
               name: traefik-forward-auth
               key: DEFAULT_PROVIDER
-        - name: ISSUER_URL
+        - name: PROVIDER_URI
           valueFrom:
             configMapKeyRef:
               name: traefik-forward-auth
-              key: ISSUER_URL
+              key: PROVIDER_URI
         - name: CLIENT_ID
           valueFrom:
             configMapKeyRef:
