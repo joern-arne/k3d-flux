@@ -30,7 +30,7 @@ ports:
 #       - server:0
 registries: # define how registries should be created or used
   create: # creates a default registry to be used with the cluster; same as `--registry-create registry.localhost`
-    name: k3d-registry.localhost
+    name: k3d-registry
     host: "0.0.0.0"
     hostPort: "5500"
     # proxy: # omit this to have a "normal" registry, set this to create a registry proxy (pull-through cache)

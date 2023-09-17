@@ -1,7 +1,15 @@
-.PHONY: build
-build:
-	docker buildx build . -t localhost:5500/webserver:latest --push
+REGISTRY := joernarne
+IMAGE := webserver
+RELEASE := latest
 
-.PHONY: clean
-clean:
-	-docker rmi webserver
+.PHONY: build
+build: build-release
+
+
+.PHONY: build-release
+build-release:
+	docker buildx build . \
+		--platform linux/arm/v7,linux/arm64/v8,linux/amd64 \
+		--tag $(REGISTRY)/$(IMAGE):$(RELEASE) \
+		--push \
+		--no-cache
