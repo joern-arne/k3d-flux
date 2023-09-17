@@ -53,6 +53,11 @@ spec:
             secretKeyRef:
               name: traefik-forward-auth
               key: SECRET
+        - name: ENCRYPTION_KEY
+          valueFrom:
+            secretKeyRef:
+              name: traefik-forward-auth
+              key: ENCRYPTION_KEY
         - name: DEFAULT_PROVIDER
           valueFrom:
             configMapKeyRef:
