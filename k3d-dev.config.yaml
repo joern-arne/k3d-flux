@@ -28,24 +28,18 @@ ports:
 #   - envVar: bar=baz # same as `--env 'bar=baz@server:0'`
 #     nodeFilters:
 #       - server:0
-registries: # define how registries should be created or used
-  create: # creates a default registry to be used with the cluster; same as `--registry-create registry.localhost`
-    name: k3d-registry
-    host: "0.0.0.0"
-    hostPort: "5500"
-    # proxy: # omit this to have a "normal" registry, set this to create a registry proxy (pull-through cache)
-    #   remoteURL: https://registry-1.docker.io # mirror the DockerHub registry
-    #   username: "" # unauthenticated
-    #   password: "" # unauthenticated
+registries:
+  create:
+    name: docker-io
+    proxy:
+      remoteURL: https://registry-1.docker.io # mirror the DockerHub registry
     volumes:
     - /Users/joern/git/github.com/joern-arne/k3d-flux/registry:/var/lib/registry # persist registry data locally
-    #   use:
-    #     - k3d-myotherregistry:5000 # some other k3d-managed registry; same as `--registry-use 'k3d-myotherregistry:5000'`
-  # config: | # define contents of the `registries.yaml` file (or reference a file); same as `--registry-config /path/to/config.yaml`
-  #   mirrors:
-  #     docker.io:
-  #       endpoint:
-  #         - https://registry-1.docker.io
+  config: | # tell K3s to use this registry when pulling from DockerHub
+    mirrors:
+      "docker.io":
+        endpoint:
+          - http://docker-io:5000
 
 # hostAliases: # /etc/hosts style entries to be injected into /etc/hosts in the node containers and in the NodeHosts section in CoreDNS
 #   - ip: 1.2.3.4
