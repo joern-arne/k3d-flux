@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-forward-auth
+data:
+  INSECURE_COOKIE: 'false'
+  COOKIE_DOMAIN: 127.0.0.1.nip.io
+  DOMAINS: 127.0.0.1.nip.io
+  AUTH_HOST: auth.127.0.0.1.nip.io
+  URL_PATH: /_oauth
+  DEFAULT_PROVIDER: oidc
+  PROVIDERS_OIDC_ISSUER_URL: https://keycloak.127.0.0.1.nip.io/auth/realms/k3s
+  PROVIDERS_OIDC_CLIENT_ID: traefik-forward-auth

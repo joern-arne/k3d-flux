@@ -834,7 +834,7 @@ data:
             "clientAuthenticatorType": "client-secret",
             "secret": "lq1bFw1P9gTnXLcpU3K9DSAJAukWZxxN",
             "redirectUris": [
-              "https://auth.k3s.lessingstrasse.org/_oauth"
+              "https://auth.127.0.0.1.nip.io/_oauth"
             ],
             "webOrigins": [
               "/*"

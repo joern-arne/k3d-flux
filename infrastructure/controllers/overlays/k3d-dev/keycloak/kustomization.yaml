@@ -6,4 +6,5 @@ resources:
 - ingress.yaml
 - pv.yaml
 - pvc.yaml
+- configmap-realm-export.yaml
 - ../../../base/keycloak
