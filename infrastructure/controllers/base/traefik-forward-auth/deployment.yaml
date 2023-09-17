@@ -43,11 +43,11 @@ spec:
         - name: http
           containerPort: 4181
         env:
-        - name: PROVIDERS_OIDC_CLIENT_SECRET
+        - name: CLIENT_SECRET
           valueFrom:
             secretKeyRef:
               name: traefik-forward-auth
-              key: PROVIDERS_OIDC_CLIENT_SECRET
+              key: CLIENT_SECRET
         - name: SECRET
           valueFrom:
             secretKeyRef:
@@ -63,16 +63,16 @@ spec:
             configMapKeyRef:
               name: traefik-forward-auth
               key: DEFAULT_PROVIDER
-        - name: PROVIDERS_OIDC_ISSUER_URL
+        - name: ISSUER_URL
           valueFrom:
             configMapKeyRef:
               name: traefik-forward-auth
-              key: PROVIDERS_OIDC_ISSUER_URL
-        - name: PROVIDERS_OIDC_CLIENT_ID
+              key: ISSUER_URL
+        - name: CLIENT_ID
           valueFrom:
             configMapKeyRef:
               name: traefik-forward-auth
-              key: PROVIDERS_OIDC_CLIENT_ID
+              key: CLIENT_ID
         - name: INSECURE_COOKIE
           valueFrom:
             configMapKeyRef:
