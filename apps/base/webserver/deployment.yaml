@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: webserver-cnt
-        image: k3d-registry.localhost:5500/webserver:latest
+        image: joernarne/webserver:latest
         imagePullPolicy: IfNotPresent
         securityContext:
           readOnlyRootFilesystem: true
