@@ -6,9 +6,6 @@ PATH			:= clusters/k3d-dev
 KUBECONFIG		:= ~/.kube/config
 KUBECONTEXT		:= k3d-dev
 
-.PHONY: build
-build:
-	$(MAKE) -C images
 
 .PHONY: bootstrap
 bootstrap:
@@ -48,9 +45,6 @@ k3d-dev-create:
 	-rm -rf /tmp/k3d-dev-vol
 	mkdir -p /tmp/k3d-dev-vol
 	k3d cluster create --config k3d-dev.config.yaml
-#	k3d cluster create multiserver --servers 3 --agents 3 -p '80:80@loadbalancer' -p '443:443@loadbalancer'
-#	kubectl apply -f ../test/traefik-dashboard.yaml
-#	open http://traefik.127.0.0.1.nip.io/dashboard/#/
 
 .PHONY: k3d-delete
 k3d-dev-delete:
