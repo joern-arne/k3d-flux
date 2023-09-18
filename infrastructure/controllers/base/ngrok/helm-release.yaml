@@ -10,7 +10,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: ngrok
-  interval: 15m
+  interval: 1h
   timeout: 5m
   values:
     credentials:
