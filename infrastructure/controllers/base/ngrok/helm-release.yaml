@@ -6,7 +6,7 @@ spec:
   chart:
     spec:
       chart: ngrok-ingress-controller
-      version: v1.5.1
+      version: v0.11.0
       sourceRef:
         kind: HelmRepository
         name: ngrok
