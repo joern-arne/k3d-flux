@@ -16,5 +16,6 @@ spec:
     credentials:
       secret:
         name: kubernetes-ingress-controller-credentials
-      # apiKey: <NGROK_API_KEY>
-      # authtoken: <NGROK_AUTHTOKEN>
+        # apiKey: <NGROK_API_KEY>
+        # authtoken: <NGROK_AUTHTOKEN>
+    region: GLOBAL
