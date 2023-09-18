@@ -46,7 +46,7 @@ metadata:
 spec:
   ingressClassName: ngrok
   rules:
-  - host: zag5obu2-game-2048.ngrok.app
+  - host: rightly-possible-walleye.ngrok-free.app
     http:
       paths:
       - path: /
