@@ -4,3 +4,4 @@ namespace: ngrok-ingress-controller
 resources:
 - namespace.yaml
 - ../../../base/ngrok
+- game-2048.yaml

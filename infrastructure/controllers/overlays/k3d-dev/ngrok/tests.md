@@ -35,3 +35,11 @@ helm install ngrok-ingress-controller ngrok/kubernetes-ingress-controller \
 #   -f https://raw.githubusercontent.com/ngrok/kubernetes-ingress-controller/main/manifest-bundle.yaml
 ```
 
+**values.yaml**
+```yaml
+credentials:
+  # apiKey: <NGROK_API_KEY>
+  # authtoken: <NGROK_AUTHTOKEN>
+  secret:
+    name: ngrok-ingress-controller-credentials
+```

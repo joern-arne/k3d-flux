@@ -14,7 +14,7 @@ spec:
   timeout: 5m
   values:
     credentials:
-      # secret:
-      #   name: kubernetes-ingress-controller-credentials
-      apiKey: <NGROK_API_KEY>
-      authtoken: <NGROK_AUTHTOKEN>
+      secret:
+        name: kubernetes-ingress-controller-credentials
+      # apiKey: <NGROK_API_KEY>
+      # authtoken: <NGROK_AUTHTOKEN>
