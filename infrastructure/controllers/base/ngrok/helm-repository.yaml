@@ -3,6 +3,6 @@ kind: HelmRepository
 metadata:
   name: ngrok
 spec:
-  interval: 30m
+  interval: 24h
   url: https://ngrok.github.io/kubernetes-ingress-controller
 

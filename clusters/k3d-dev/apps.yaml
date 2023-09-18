@@ -5,6 +5,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 30m
+  retryInterval: 1m
+  timeout: 5m
   dependsOn:
   - name: infrastructure
   sourceRef:
@@ -13,4 +15,3 @@ spec:
   path: ./apps/overlays/k3d-dev
   prune: true
   wait: true
-  timeout: 5m0s
