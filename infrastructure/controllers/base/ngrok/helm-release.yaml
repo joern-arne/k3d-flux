@@ -18,4 +18,4 @@ spec:
         name: kubernetes-ingress-controller-credentials
         # apiKey: <NGROK_API_KEY>
         # authtoken: <NGROK_AUTHTOKEN>
-    region: global
+    region: eu
