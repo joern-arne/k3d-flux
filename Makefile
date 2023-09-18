@@ -1,7 +1,6 @@
 GITHUB_OWNER	:= $(shell op item get "GitHub" --fields "GitHub Username")
 GITHUB_TOKEN	:= $(shell op item get "GitHub" --fields token)
 REPO			:= k3d-flux
-# PATH			:= clusters/test-14
 PATH			:= clusters/k3d-dev
 KUBECONFIG		:= ~/.kube/config
 KUBECONTEXT		:= k3d-dev
