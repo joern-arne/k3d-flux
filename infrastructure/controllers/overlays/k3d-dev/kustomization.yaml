@@ -4,4 +4,4 @@ resources:
 - weave
 # - keycloak
 # - traefik-forward-auth
-- ngrok
+# - ngrok
