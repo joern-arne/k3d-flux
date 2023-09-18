@@ -5,7 +5,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: ngrok-ingress-controller
+      chart: ngrok/kubernetes-ingress-controller
       version: v0.11.0
       sourceRef:
         kind: HelmRepository
