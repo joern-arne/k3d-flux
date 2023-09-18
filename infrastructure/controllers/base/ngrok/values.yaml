@@ -1,0 +1,5 @@
+credentials:
+  # apiKey: usr_2VXbeBymO3X0bYQz2r97Yzlon9r
+  # authtoken: 2VXbe6quxsjbxYtkvuYgf0STLLG_6C9NPDwFJt2ZER5j41CFx
+  secret:
+    name: ngrok-ingress-controller-credentials

@@ -12,3 +12,10 @@ spec:
         name: ngrok
   interval: 15m
   timeout: 5m
+  install:
+    createNamespace: true
+  values:
+    credentials:
+      secret:
+        name: ngrok-ingress-controller-credentials
+
