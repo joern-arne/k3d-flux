@@ -6,3 +6,4 @@ resources:
 - webserver
 - whoami
 - node-red
+- game-2048
