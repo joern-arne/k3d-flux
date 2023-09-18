@@ -1,0 +1,5 @@
+credentials:
+  # apiKey: <NGROK_API_KEY>
+  # authtoken: <NGROK_AUTHTOKEN>
+  secret:
+    name: ngrok-ingress-controller-credentials
