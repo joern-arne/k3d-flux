@@ -39,15 +39,15 @@ watch:
 		flux get kustomizations --watch --context=${KUBECONTEXT} \
 	)
 
-.PHONY: k3d-up
-k3d-up: k3d-create bootstrap
+.PHONY: k3d-dev-up
+k3d-dev-up: k3d-dev-create bootstrap
 
-.PHONY: k3d-create
+.PHONY: k3d-dev-create
 k3d-dev-create:
 	-rm -rf /tmp/k3d-dev-vol
 	mkdir -p /tmp/k3d-dev-vol
 	k3d cluster create --config k3d-dev.config.yaml
 
-.PHONY: k3d-delete
+.PHONY: k3d-dev-delete
 k3d-dev-delete:
 	k3d cluster delete --config k3d-dev.config.yaml
