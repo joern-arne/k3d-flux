@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: ngrok
   rules:
-  - host: rightly-possible-walleye.ngrok-free.app
+  - host: robust-bengal-humorous.ngrok-free.app
     http:
       paths:
       - path: /
