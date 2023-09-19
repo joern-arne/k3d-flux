@@ -19,3 +19,11 @@ spec:
         # apiKey: <NGROK_API_KEY>
         # authtoken: <NGROK_AUTHTOKEN>
     region: eu
+
+    image:
+      repository: ngrok/kubernetes-ingress-controller
+      tag: latest
+    log:
+      format: console
+      level: debug
+      stacktraceLevel: panic
