@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: ngrok
   rules:
-  - host: ghastly-calm-ferret.ngrok-free.app
+  - host: "ghastly-calm-ferret.ngrok-free.app"
     http:
       paths:
       - path: /
