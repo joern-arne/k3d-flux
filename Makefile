@@ -39,6 +39,9 @@ watch:
 		flux get kustomizations --watch --context=${KUBECONTEXT} \
 	)
 
+.PHONY: k3d-up
+k3d-up: k3d-create bootstrap
+
 .PHONY: k3d-create
 k3d-dev-create:
 	-rm -rf /tmp/k3d-dev-vol
