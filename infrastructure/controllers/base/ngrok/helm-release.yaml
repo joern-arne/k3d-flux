@@ -16,8 +16,7 @@ spec:
     credentials:
       secret:
         name: kubernetes-ingress-controller-credentials
-        # apiKey: 2Vfj7YPH9bfu7YvCRjsosFUXkeb_7F6JCewT1yJoP1Bp5UZzd
-        # authtoken: 2VXbe6quxsjbxYtkvuYgf0STLLG_6C9NPDwFJt2ZER5j41CFx
+
     region: eu
 
     image:
