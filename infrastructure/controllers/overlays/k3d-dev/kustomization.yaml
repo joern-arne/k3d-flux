@@ -6,3 +6,4 @@ resources:
 # - keycloak
 # - traefik-forward-auth
 # - ngrok
+- authelia
