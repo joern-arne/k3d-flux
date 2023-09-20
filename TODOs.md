@@ -25,4 +25,5 @@
 * decide on storage solution at oci
   * nfs
   * longhorn
+  * [openebs mayastor](https://github.com/openebs/mayastor)
 
