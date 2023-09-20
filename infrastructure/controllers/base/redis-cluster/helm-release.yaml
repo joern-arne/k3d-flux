@@ -12,3 +12,6 @@ spec:
         name: bitnami
   interval: 1h
   timeout: 5m
+  values:
+    existingSecret: redis-secrets
+    existingSecretPasswordKey: REDIS_PASSWORD
