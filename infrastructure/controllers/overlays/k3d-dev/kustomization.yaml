@@ -7,4 +7,5 @@ resources:
 # - traefik-forward-auth
 # - ngrok
 # - authelia
-- redis
+# - redis
+- redis-cluster
