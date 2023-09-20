@@ -4,5 +4,5 @@ resources:
 - podinfo
 - webserver
 - whoami
-- node-red
-- game-2048
+# - node-red
+# - game-2048
