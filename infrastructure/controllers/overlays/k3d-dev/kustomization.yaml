@@ -8,4 +8,4 @@ resources:
 # - ngrok
 # - authelia
 # - redis
-- redis-cluster
+# - redis-cluster
