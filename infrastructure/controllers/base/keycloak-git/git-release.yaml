@@ -19,7 +19,7 @@ spec:
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: keycloak
+  name: keycloak-depl
   namespace: keycloak-git
 spec:
   interval: 30m
