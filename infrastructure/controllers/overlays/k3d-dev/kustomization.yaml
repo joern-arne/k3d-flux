@@ -4,7 +4,6 @@ resources:
 - traefik
 - weave
 - keycloak-operator
-- keycloak
 # - traefik-forward-auth
 # - ngrok
 # - authelia
