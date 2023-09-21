@@ -10,7 +10,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: keycloak-k8s-resources
-    namespace: keycloak-git
   path: ./kubernetes
   prune: true
   wait: true
