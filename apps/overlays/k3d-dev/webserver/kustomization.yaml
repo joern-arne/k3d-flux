@@ -3,5 +3,6 @@ kind: Kustomization
 namespace: webserver
 resources:
 - namespace.yaml
-- ingress.yaml
+- ingress-local.yaml
+- ingress-k3d.yaml
 - ../../../base/webserver
