@@ -40,7 +40,8 @@ spec:
     ingress:
       enabled: true
       className: traefik
-      annotations: {}
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts:
       # - host: weave.127.0.0.1.nip.io
       #   paths:
