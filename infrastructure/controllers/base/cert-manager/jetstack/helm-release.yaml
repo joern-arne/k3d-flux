@@ -13,7 +13,7 @@ spec:
   interval: 1h
   timeout: 5m
   releaseName: cert-manager
-  valuesKey:
+  values:
     installCRDs: true
 
   # valuesFrom:
