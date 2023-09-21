@@ -20,4 +20,4 @@ spec:
   tls:
   - hosts:
     - whoami.k3d.lessingstrasse.org
-    secretName: whoami-k3d-lessingstrasse-org
+    secretName: whoami.k3d.lessingstrasse.org
