@@ -13,11 +13,13 @@ spec:
     ingress:
       enabled: true
       className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts:
-      - host: podinfo.127.0.0.1.nip.io
-        paths:
-        - path: /
-          pathType: ImplementationSpecific
+      # - host: podinfo.127.0.0.1.nip.io
+      #   paths:
+      #   - path: /
+      #     pathType: ImplementationSpecific
       - host: podinfo.k3d.lessingstrasse.org
         paths:
         - path: /
