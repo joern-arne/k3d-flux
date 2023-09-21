@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: keycloak-git
 resources:
 - namespace.yaml
-- ../../../base/keycloak-git
+# - ../../../base/keycloak-git
