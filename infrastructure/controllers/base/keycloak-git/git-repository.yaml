@@ -11,4 +11,4 @@ spec:
   ignore: |
     README.md
     kubernetes/openshift.yml
-    kubernetes/kubernetes.yml
+#    kubernetes/kubernetes.yml
