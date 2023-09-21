@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traefik-forward-auth-ingress
+  name: traefik-forward-auth-local-ingress
 spec:
   ingressClassName: traefik
   rules:
