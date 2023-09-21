@@ -13,6 +13,9 @@ spec:
   interval: 1h
   timeout: 5m
   releaseName: cert-manager
+  valuesKey:
+    installCRDs: true
+
   # valuesFrom:
   # - kind: ConfigMap
   #   name: cert-manager-helm-chart-value-overrides
