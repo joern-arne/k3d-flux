@@ -21,8 +21,7 @@ spec:
         fsGroup: 1000
       containers:
       - name: keycloak
-        # image: sleighzy/keycloak:16.1.0-arm64
-        image: quay.io/keycloak/keycloak:22.0.3
+        image: sleighzy/keycloak:16.1.0-arm64
         imagePullPolicy: IfNotPresent
         ports:
         - name: http

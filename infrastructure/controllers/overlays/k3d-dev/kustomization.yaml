@@ -3,7 +3,8 @@ kind: Kustomization
 resources:
 - traefik
 - weave
-- keycloak
+- keycloak-git
+# - keycloak
 # - traefik-forward-auth
 # - ngrok
 # - authelia
