@@ -4,3 +4,6 @@ namespace: cert-manager
 resources:
 - namespace.yaml
 - ../../../base/cert-manager
+- clusterissuer_letsencrypt-staging.yaml
+- secret_letsencrypt-staging-issuer-account-key.yaml
+- secret_cloudflare-api-token-secret.yaml

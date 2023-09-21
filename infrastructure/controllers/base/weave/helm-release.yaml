@@ -42,11 +42,11 @@ spec:
       className: traefik
       annotations: {}
       hosts:
-      - host: weave.127.0.0.1.nip.io
-        paths:
-        - path: /
-          pathType: ImplementationSpecific
-        tls: []
+      # - host: weave.127.0.0.1.nip.io
+      #   paths:
+      #   - path: /
+      #     pathType: ImplementationSpecific
+      #   tls: []
       - host: weave.k3d.lessingstrasse.org
         paths:
         - path: /
