@@ -7,3 +7,8 @@ spec:
   ref:
     tag: "22.0.3"
   url: https://github.com/keycloak/keycloak-k8s-resources.git
+  ignore: |
+    README.md
+    kubernetes/openshift.yml
+    kubernetes/keycloaks.k8s.keycloak.org-v1.yml
+    kubernetes/keycloakrealmimports.k8s.keycloak.org-v1.yml
