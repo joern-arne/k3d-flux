@@ -5,4 +5,4 @@ resources:
 - webserver
 - whoami
 # - node-red
-# - game-2048
+- game-2048
