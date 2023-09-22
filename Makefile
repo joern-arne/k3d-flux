@@ -13,8 +13,8 @@ KUBECONTEXT_PROD	:= k3d-prod
 # flux get kustomizations --watch
 
 
-.PHONY: bootstrap-dev
-bootstrap-dev:
+.PHONY: k3d-dev-bootstrap
+k3d-dev-bootstrap:
 	@echo $(shell \
 		GITHUB_TOKEN=${GITHUB_TOKEN} \
 		KUBECONFIG=${KUBECONFIG} \
@@ -26,7 +26,7 @@ bootstrap-dev:
 		--personal)
 
 .PHONY: k3d-dev-up
-k3d-dev-up: k3d-dev-create bootstrap-dev
+k3d-dev-up: k3d-dev-create k3d-dev-bootstrap
 
 .PHONY: k3d-dev-create
 k3d-dev-create:
@@ -42,20 +42,20 @@ k3d-dev-delete:
 ###
 ###
 
-.PHONY: bootstrap-prod
-bootstrap-prod:
+.PHONY: k3d-prod-bootstrap
+k3d-prod-bootstrap:
 	@echo $(shell \
 		GITHUB_TOKEN=${GITHUB_TOKEN} \
 		KUBECONFIG=${KUBECONFIG} \
 		flux bootstrap github \
 		--owner=${GITHUB_OWNER} \
 		--repository=${REPO} \
-		--path=${PATH_DEV} \
-		--context=${KUBECONTEXT_DEV} \
+		--path=${PATH_PROD} \
+		--context=${KUBECONTEXT_PROD} \
 		--personal)
 
 .PHONY: k3d-prod-up
-k3d-prod-up: k3d-prod-create bootstrap-prod
+k3d-prod-up: k3d-prod-create k3d-prod-bootstrap
 
 .PHONY: k3d-prod-create
 k3d-prod-create:

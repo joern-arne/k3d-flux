@@ -4,3 +4,9 @@ namespace: keycloak-operator
 resources:
 - namespace.yaml
 - ../../../base/keycloak-operator
+- certificate.yaml
+- ingress-k3d.yaml
+patches:
+- path: deployment-patch.yaml
+  target:
+    kind: Keycloak

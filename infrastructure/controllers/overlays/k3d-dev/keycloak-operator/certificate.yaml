@@ -1,11 +1,11 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: keycloak-test.k3d.lessingstrasse.org
+  name: keycloak.k3d-dev.lessingstrasse.org
 spec:
-  secretName: keycloak-test.k3d.lessingstrasse.org
+  secretName: keycloak.k3d-dev.lessingstrasse.org
   dnsNames:
-  - keycloak-test.k3d.lessingstrasse.org
+  - keycloak.k3d-dev.lessingstrasse.org
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
