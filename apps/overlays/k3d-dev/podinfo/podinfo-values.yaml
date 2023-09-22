@@ -24,7 +24,7 @@ spec:
         paths:
         - path: /
           pathType: ImplementationSpecific
-        tls:
-        - hosts:
-          - podinfo.k3d.lessingstrasse.org
-          secretName: podinfo.k3d.lessingstrasse.org
+      tls:
+      - hosts:
+        - podinfo.k3d.lessingstrasse.org
+        secretName: podinfo.k3d.lessingstrasse.org
