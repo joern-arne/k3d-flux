@@ -5,7 +5,8 @@ metadata:
 spec:
   instances: 1
   ingress:
-    className: traefik
+    # className: traefik
+    enabled: false
   http:
     # httpEnabled: true
     tlsSecret: keycloak-test.k3d.lessingstrasse.org
