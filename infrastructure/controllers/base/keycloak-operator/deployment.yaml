@@ -4,10 +4,12 @@ metadata:
   name: example-kc
 spec:
   instances: 1
+  ingress:
+    className: traefik
   http:
     # httpEnabled: true
     tlsSecret: keycloak-test.k3d.lessingstrasse.org
   hostname:
-    hostname: keycloak-test.k3d.lessingstrasse.org
+    # hostname: keycloak-test.k3d.lessingstrasse.org
     strict: false
     strictBackchannel: false
