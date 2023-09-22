@@ -1,12 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: webserver-k3d-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: whoami-local-ingress
+  namespace: webserver
 spec:
   rules:
-  - host: webserver.k3d-dev.lessingstrasse.org
+  - host: whoami.127.0.0.1.nip.io
     http:
       paths:
       - path: /
@@ -16,7 +15,3 @@ spec:
             name: webserver-svc
             port:
               number: 80
-  tls:
-  - hosts:
-    - webserver.k3d-dev.lessingstrasse.org
-    secretName: webserver.k3d-dev.lessingstrasse.org

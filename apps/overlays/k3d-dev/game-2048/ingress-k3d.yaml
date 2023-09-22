@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: game-2048.k3d.lessingstrasse.org
+  - host: game-2048.k3d-dev.lessingstrasse.org
     http:
       paths:
       - path: /
@@ -19,5 +19,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - game-2048.k3d.lessingstrasse.org
-    secretName: game-2048.k3d.lessingstrasse.org
+    - game-2048.k3d-dev.lessingstrasse.org
+    secretName: game-2048.k3d-dev.lessingstrasse.org

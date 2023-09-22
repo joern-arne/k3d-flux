@@ -1,23 +1,23 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: node-red-k3d-ingress
+  name: whoami-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: traefik
   rules:
-  - host: node-red.k3d-dev.lessingstrasse.org
+  - host: whoami.k3d.lessingstrasse.org
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: node-red-svc
+            name: whoami-svc
             port:
-              number: 1880
+              number: 80
   tls:
   - hosts:
-    - node-red.k3d-dev.lessingstrasse.org
-    secretName: node-red.k3d-dev.lessingstrasse.org
+    - whoami.k3d.lessingstrasse.org
+    secretName: whoami.k3d.lessingstrasse.org

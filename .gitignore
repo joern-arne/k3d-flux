@@ -1,2 +1,3 @@
 .vscode
-registry
+registry-dev
+registry-prod
