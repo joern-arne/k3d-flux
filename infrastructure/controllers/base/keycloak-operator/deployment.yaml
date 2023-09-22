@@ -14,3 +14,9 @@ spec:
     # hostname: keycloak-test.k3d.lessingstrasse.org
     strict: false
     strictBackchannel: false
+
+  additionalOptions:
+  - name: hostname-url
+    value: https://keycloak-test.k3d.lessingstrasse.org
+  - name: proxy
+    value: edge
