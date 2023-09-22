@@ -9,8 +9,8 @@ spec:
     enabled: false
   http:
     httpEnabled: true
-    # tlsSecret: keycloak-test.k3d.lessingstrasse.org
+    tlsSecret: keycloak-test.k3d.lessingstrasse.org
   hostname:
-    # hostname: keycloak-test.k3d.lessingstrasse.org
+    hostname: keycloak-test.k3d.lessingstrasse.org
     strict: false
     strictBackchannel: false
