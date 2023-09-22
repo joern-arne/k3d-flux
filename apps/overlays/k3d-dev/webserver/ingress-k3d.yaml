@@ -6,7 +6,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   rules:
-  - host: webserver.k3d.lessingstrasse.org
+  - host: webserver.k3d-dev.lessingstrasse.org
     http:
       paths:
       - path: /
@@ -18,5 +18,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - webserver.k3d.lessingstrasse.org
-    secretName: webserver.k3d.lessingstrasse.org
+    - webserver.k3d-dev.lessingstrasse.org
+    secretName: webserver.k3d-dev.lessingstrasse.org

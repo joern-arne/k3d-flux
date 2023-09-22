@@ -7,7 +7,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: node-red.k3d.lessingstrasse.org
+  - host: node-red.k3d-dev.lessingstrasse.org
     http:
       paths:
       - path: /
@@ -19,5 +19,5 @@ spec:
               number: 1880
   tls:
   - hosts:
-    - node-red.k3d.lessingstrasse.org
-    secretName: node-red.k3d.lessingstrasse.org
+    - node-red.k3d-dev.lessingstrasse.org
+    secretName: node-red.k3d-dev.lessingstrasse.org

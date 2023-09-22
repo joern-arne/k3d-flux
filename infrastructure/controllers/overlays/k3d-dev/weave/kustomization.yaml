@@ -4,3 +4,7 @@ namespace: weave
 resources:
 - namespace.yaml
 - ../../../base/weave
+patches:
+- path: helm-release-values.yaml
+  target:
+    kind: HelmRelease

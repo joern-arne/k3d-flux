@@ -25,10 +25,10 @@ volumes:
   - agent:*
 
 ports:
-- port: 80:80
+- port: 8080:80
   nodeFilters:
   - loadbalancer
-- port: 443:443
+- port: 8443:443
   nodeFilters:
   - loadbalancer
 
@@ -39,17 +39,17 @@ ports:
 
 registries:
   create:
-    name: docker-io
+    name: k3d-dev-docker-io
     proxy:
       remoteURL: https://registry-1.docker.io
     volumes:
-    - /Users/joern/git/github.com/joern-arne/k3d-flux/registry:/var/lib/registry
+    - /Users/joern/git/github.com/joern-arne/k3d-flux/registry-dev:/var/lib/registry
     # - /tmp/k3d-dev-registry:/var/lib/registry
   config: |
     mirrors:
       "docker.io":
         endpoint:
-          - http://docker-io:5000
+          - http://k3d-dev-docker-io:5000
 
 # hostAliases: # /etc/hosts style entries to be injected into /etc/hosts in the node containers and in the NodeHosts section in CoreDNS
 #   - ip: 1.2.3.4
