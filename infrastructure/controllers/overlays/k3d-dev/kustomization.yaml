@@ -5,8 +5,3 @@ resources:
 - weave
 - cert-manager
 - keycloak-operator
-# - traefik-forward-auth
-# - ngrok
-# - authelia
-# - redis
-# - redis-cluster
