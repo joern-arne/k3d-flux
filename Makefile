@@ -1,46 +1,32 @@
-GITHUB_OWNER	:= $(shell op item get "GitHub" --fields "GitHub Username")
-GITHUB_TOKEN	:= $(shell op item get "GitHub" --fields token)
-REPO			:= k3d-flux
-PATH			:= clusters/k3d-dev
-KUBECONFIG		:= ~/.kube/config
-KUBECONTEXT		:= k3d-dev
+GITHUB_OWNER		:= $(shell op item get "GitHub" --fields "GitHub Username")
+GITHUB_TOKEN		:= $(shell op item get "GitHub" --fields token)
+REPO				:= k3d-flux
+PATH_DEV			:= clusters/k3d-dev
+PATH_PROD			:= clusters/k3d-prod
+KUBECONFIG			:= ~/.kube/config
+KUBECONTEXT_DEV		:= k3d-dev
+KUBECONTEXT_PROD	:= k3d-prod
 
 
-.PHONY: bootstrap
-bootstrap:
+# flux reconcile source git flux-system
+# flux get hr podinfo -n podinfo
+# flux get kustomizations --watch
+
+
+.PHONY: bootstrap-dev
+bootstrap-dev:
 	@echo $(shell \
 		GITHUB_TOKEN=${GITHUB_TOKEN} \
 		KUBECONFIG=${KUBECONFIG} \
 		flux bootstrap github \
 		--owner=${GITHUB_OWNER} \
 		--repository=${REPO} \
-		--path=${PATH} \
-		--context=${KUBECONTEXT} \
+		--path=${PATH_DEV} \
+		--context=${KUBECONTEXT_DEV} \
 		--personal)
 
-.PHONY: reconcile
-reconcile:
-	$(shell \
-		KUBECONFIG=${KUBECONFIG} \
-		flux reconcile source git flux-system --context=${KUBECONTEXT} \
-	)
-
-.PHONY: hr-status
-hr-status:
-	@echo $(shell \
-		KUBECONFIG=${KUBECONFIG} \
-		flux get hr podinfo -n podinfo --context=${KUBECONTEXT} \
-	)
-
-.PHONY: watch
-watch:
-	$(shell \
-		KUBECONFIG=${KUBECONFIG} \
-		flux get kustomizations --watch --context=${KUBECONTEXT} \
-	)
-
 .PHONY: k3d-dev-up
-k3d-dev-up: k3d-dev-create bootstrap
+k3d-dev-up: k3d-dev-create bootstrap-dev
 
 .PHONY: k3d-dev-create
 k3d-dev-create:
@@ -52,6 +38,24 @@ k3d-dev-create:
 k3d-dev-delete:
 	k3d cluster delete --config k3d-dev.config.yaml
 
+###
+###
+###
+
+.PHONY: bootstrap-prod
+bootstrap-prod:
+	@echo $(shell \
+		GITHUB_TOKEN=${GITHUB_TOKEN} \
+		KUBECONFIG=${KUBECONFIG} \
+		flux bootstrap github \
+		--owner=${GITHUB_OWNER} \
+		--repository=${REPO} \
+		--path=${PATH_DEV} \
+		--context=${KUBECONTEXT_DEV} \
+		--personal)
+
+.PHONY: k3d-prod-up
+k3d-prod-up: k3d-prod-create bootstrap-prod
 
 .PHONY: k3d-prod-create
 k3d-prod-create:
