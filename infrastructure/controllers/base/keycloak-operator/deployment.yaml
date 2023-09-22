@@ -5,8 +5,8 @@ metadata:
 spec:
   instances: 1
   http:
-    httpEnabled: true
-  #   tlsSecret: example-tls-secret
+    # httpEnabled: true
+    tlsSecret: keycloak-test.k3d.lessingstrasse.org
   hostname:
     hostname: keycloak-test.k3d.lessingstrasse.org
     # strict: false
