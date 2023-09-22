@@ -14,4 +14,3 @@ spec:
     # hostname: keycloak-test.k3d.lessingstrasse.org
     strict: false
     strictBackchannel: false
-    hostname-url: https://keycloak-test.k3d.lessingstrasse.org
