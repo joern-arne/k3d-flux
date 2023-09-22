@@ -9,5 +9,5 @@ spec:
     tlsSecret: keycloak-test.k3d.lessingstrasse.org
   hostname:
     hostname: keycloak-test.k3d.lessingstrasse.org
-    # strict: false
+    strict: false
     strictBackchannel: false
