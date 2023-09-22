@@ -52,8 +52,8 @@ spec:
         paths:
         - path: /
           pathType: ImplementationSpecific
-        tls:
-        - hosts:
-          - weave.k3d.lessingstrasse.org
-          secretName: weave.k3d.lessingstrasse.org
+      tls:
+      - hosts:
+        - weave.k3d.lessingstrasse.org
+        secretName: weave.k3d.lessingstrasse.org
 
