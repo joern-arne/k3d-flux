@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: pgo
-      version: v5.4.2
+      version: "5.4.2"
       sourceRef:
         kind: HelmRepository
         name: postgres-operator
