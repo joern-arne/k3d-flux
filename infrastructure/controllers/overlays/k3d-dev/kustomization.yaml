@@ -5,4 +5,5 @@ resources:
 - weave
 - cert-manager
 - postgres-operator
+- postgres-cluster
 # - keycloak-operator
