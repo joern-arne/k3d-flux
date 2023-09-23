@@ -3,12 +3,7 @@ kind: HelmRelease
 metadata:
   name: postgres-operator
 spec:
-  interval: 1h
   chart:
     spec:
       chart: pgo
-      version: "*"
-      sourceRef:
-        kind: HelmRepository
-        name: postgres-operator
-      interval: 12h
+      version: "5.4.2"
