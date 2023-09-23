@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: postgress-operator
+  name: postgres-operator
 spec:
   type: oci
   interval: 24h
