@@ -5,4 +5,4 @@ metadata:
 spec:
   type: oci
   interval: 24h
-  url: oci://registry.developers.crunchydata.com/crunchydata/pgo
+  url: oci://registry.developers.crunchydata.com/crunchydata
