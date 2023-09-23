@@ -4,7 +4,3 @@ namespace: postgres-operator
 resources:
 - namespace.yaml
 - ../../../base/postgres-operator
-# patches:
-# - path: helm-release-values.yaml
-#   target:
-#     kind: HelmRelease

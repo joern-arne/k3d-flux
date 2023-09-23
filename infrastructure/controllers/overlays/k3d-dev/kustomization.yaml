@@ -4,6 +4,5 @@ resources:
 - traefik
 - weave
 - cert-manager
-- postgres-operator
-- postgres-cluster
-# - keycloak-operator
+# - postgres-cluster
+# - keycloak
