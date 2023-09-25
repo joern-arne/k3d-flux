@@ -6,3 +6,4 @@ resources:
 - whoami
 # - node-red
 # - game-2048
+- icinga
