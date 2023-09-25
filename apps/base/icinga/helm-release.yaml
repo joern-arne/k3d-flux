@@ -1,0 +1,89 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: icinga
+spec:
+  interval: 30m
+  releaseName: icinga-stack
+  chart:
+    spec:
+      chart: icinga-stack
+      sourceRef:
+        kind: HelmRepository
+        name: icinga
+      interval: 12h
+  values:
+    icinga2:
+
+      ingress:
+        enabled: true
+        className: traefik
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-staging
+        hosts:
+        - host: icinga.127.0.0.1.nip.io
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+        - host: icinga.k3d-dev.lessingstrasse.org
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+        tls:
+        - hosts:
+          - icinga.k3d-dev.lessingstrasse.org
+          secretName: icinga.k3d-dev.lessingstrasse.org
+
+      config:
+        ticket_salt:
+          value: bcu4gWGirsrb
+
+    icingaweb2:
+
+      ingress:
+        enabled: true
+        className: traefik
+        annotations:
+          cert-manager.io/cluster-issuer: letsencrypt-staging
+        hosts:
+        - host: icingaweb.127.0.0.1.nip.io
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+        - host: icingaweb.k3d-dev.lessingstrasse.org
+          paths:
+          - path: /
+            pathType: ImplementationSpecific
+        tls:
+        - hosts:
+          - icingaweb.k3d-dev.lessingstrasse.org
+          secretName: icingaweb.k3d-dev.lessingstrasse.org
+
+      auth:
+        admin_password:
+          value: wert4567
+    global:
+      api:
+        users:
+          director:
+            password:
+              value: wert4567
+          icingaweb:
+            password:
+              value: wert4567
+      databases:
+        director:
+          username:
+            value: directordbuser
+          password:
+            value: wert4567
+        icingaweb2:
+          username:
+            value: icingaweb2dbuser
+          password:
+            value: wert4567
+        icingadb:
+          username:
+            value: icingadbuser
+          password:
+            value: wert4567

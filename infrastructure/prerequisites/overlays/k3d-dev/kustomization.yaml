@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - cert-manager
 # - keycloak-operator
-- postgres-operator
+# - postgres-operator
