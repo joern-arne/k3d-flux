@@ -60,8 +60,8 @@ spec:
           secretName: icingaweb.k3d-dev.lessingstrasse.org
 
       auth:
-        admin_user:
-          value: icingaweb
+        # admin_user:
+        #   value: icingaweb
         admin_password:
           value: wert4567
     global:

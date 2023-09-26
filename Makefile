@@ -29,13 +29,13 @@ k3d-dev-bootstrap:
 k3d-dev-up: k3d-dev-create k3d-dev-bootstrap
 
 .PHONY: k3d-dev-create
-k3d-dev-create:
+k3d-dev-create: enable-ingress
 	-rm -rf /tmp/k3d-dev-vol
 	mkdir -p /tmp/k3d-dev-vol
 	k3d cluster create --config k3d-dev.config.yaml
 
 .PHONY: k3d-dev-delete
-k3d-dev-delete:
+k3d-dev-delete: disable-ingress
 	k3d cluster delete --config k3d-dev.config.yaml
 
 ###
@@ -58,11 +58,26 @@ k3d-prod-bootstrap:
 k3d-prod-up: k3d-prod-create k3d-prod-bootstrap
 
 .PHONY: k3d-prod-create
-k3d-prod-create:
+k3d-prod-create: enable-ingress
 	-rm -rf /tmp/k3d-prod-vol
 	mkdir -p /tmp/k3d-prod-vol
 	k3d cluster create --config k3d-prod.config.yaml
 
 .PHONY: k3d-prod-delete
-k3d-prod-delete:
+k3d-prod-delete: disable-ingress
 	k3d cluster delete --config k3d-prod.config.yaml
+
+
+.PHONY: enable-ingress
+enable-ingress:
+	@( \
+		export KUBECONFIG=/Users/u299496/git/github.com/joern-arne/nexus-services/k3s/kubeconfig && \
+		kubectl apply -k k3s-ingress \
+	)
+
+.PHONY: disable-ingress
+disable-ingress:
+	@( \
+		export KUBECONFIG=/Users/u299496/git/github.com/joern-arne/nexus-services/k3s/kubeconfig && \
+		kubectl delete -k k3s-ingress \
+	)
