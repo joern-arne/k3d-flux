@@ -71,13 +71,15 @@ k3d-prod-delete: disable-ingress
 .PHONY: enable-ingress
 enable-ingress:
 	@( \
+		echo "Target IP for ingress is " && \
+		cat k3s-ingress/kustomization.yaml | yq '.patches.[].patch' | yq '.[].value' && \
 		export KUBECONFIG=/Users/u299496/git/github.com/joern-arne/nexus-services/k3s/kubeconfig && \
 		kubectl apply -k k3s-ingress \
 	)
 
 .PHONY: disable-ingress
 disable-ingress:
-	@( \
+	-@( \
 		export KUBECONFIG=/Users/u299496/git/github.com/joern-arne/nexus-services/k3s/kubeconfig && \
 		kubectl delete -k k3s-ingress \
 	)
