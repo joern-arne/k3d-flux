@@ -69,7 +69,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: whoami-sec.k3d.lessingstrasse.org
+  - host: whoami-sec.k3d-dev.lessingstrasse.org
     http:
       paths:
       - path: /
@@ -81,5 +81,5 @@ spec:
               number: 80
   tls:
   - hosts:
-    - whoami-sec.k3d.lessingstrasse.org
-    secretName: whoami-sec.k3d.lessingstrasse.org
+    - whoami-sec.k3d-dev.lessingstrasse.org
+    secretName: whoami-sec.k3d-dev.lessingstrasse.org
