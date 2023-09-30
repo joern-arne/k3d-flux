@@ -91,8 +91,11 @@ k3d-dev-vault-create:
 	mkdir -p secrets/k3d-dev
 	mv 1password-credentials.json secrets/k3d-dev
 	op connect token create k3d-dev-operator --server k3d-dev --vault k3d-dev,r > secrets/k3d-dev/token
-	export K3D_OP_TOKEN=$(shell cat secrets/k3d-dev/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
-	export K3D_OP_CREDENTIALS=$(shell cat secrets/k3d-dev/1password-credentials.json | base64) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
+
+.PHONY: k3d-dev-vault-update-helm
+k3d-dev-vault-update-helm:
+	@export K3D_OP_TOKEN=$(shell cat secrets/k3d-dev/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
+	@export K3D_OP_CREDENTIALS=$(shell cat secrets/k3d-dev/1password-credentials.json | base64) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
 
 
 .PHONY: k3d-dev-vault-init
