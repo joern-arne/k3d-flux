@@ -9,30 +9,4 @@ spec:
       token:
         value: eyJhbGciOiJFUzI1NiIsImtpZCI6ImI0NmV4NWlwZHpndjNsd3JvYTczejJoYnJpIiwidHlwIjoiSldUIn0.eyIxcGFzc3dvcmQuY29tL2F1dWlkIjoiRkZKV0hUNk9SUkJJQkdXM0ZJUE5GTE5BS0EiLCIxcGFzc3dvcmQuY29tL3Rva2VuIjoiaWNORVVtS1pBcnlkbVc4VlZiNDRZbFlIUENfSmhQZmMiLCIxcGFzc3dvcmQuY29tL2Z0cyI6WyJ2YXVsdGFjY2VzcyJdLCIxcGFzc3dvcmQuY29tL3Z0cyI6W3sidSI6InhzbHRjZTIydTZlczRiYndhdG9ha3lna3d5IiwiYSI6NDh9XSwiYXVkIjpbImNvbS4xcGFzc3dvcmQuY29ubmVjdCJdLCJzdWIiOiJOSkpSRTVaMzROQkVMRVMzR0ZJWUk1SFc3RSIsImlhdCI6MTY5NjA5Nzk3OCwiaXNzIjoiY29tLjFwYXNzd29yZC5iNSIsImp0aSI6Inl2c2VrbHB1bnB3dDRvdnJ2Zmc1ZTJoNnl1In0.Cw4ABJyQSggavh8fL2vpxQOXeSdkvCNlbNTSE7ouXXtnn16C12naqEPrtLh7vQWq0f78XEFozD1tOXsyt8Sn5g
     connect:
-      credentials: |-
-        {
-          "verifier": {
-            "salt": "L92_dvVzlJQJbEfuqUx1cw",
-            "localHash": "IKfDfHHAg3gPvoe5ywxCVuOhXu4vEmZAG69_evw9ofQ"
-          },
-          "encCredentials": {
-            "kid": "localauthv2keykid",
-            "enc": "A256GCM",
-            "cty": "b5+jwk+json",
-            "iv": "6IFzZkeqDowdhXDB",
-            "data": "a8foNkWGTsXRLNKWxLBgATHze6uVQsQuk9tLdYXOkfExYi3G6LCu0ZGzXbQ3e0urPTjJlRMwTDefQjzDJut2g11bp_y4OASisJPMjCQqFrNBj7jflv7pY5Uu9uB7dPXi2LiLRUUgDZf4Jes1BVHxa8Qvd-zUg-tPwOXB2rBKWLlDX41aeZYeg8ZgAZGoTNjJUPz-fPDE0n75BSUE4uCdxXsAVwybJhvmDQGbXwG2lbTEpiQB2mwiURQXC7UBcgLEvVeIfUZ-hO0E1czMRnXGf3C5zS1eREiVEj0cIQSmuvNu_rm0NOh6J_Gz8xksGlzGJywCdnWkceHS3qJltr5ogIJvbxRMgU48diYyxOShvjP2ZX0oDo7JmnYUXg8zBHuAoMoLWedNRAfHMzSpxApZM7-lu4ITxu5yo0uMmA5T7L9ncrHE6FgZUBNHQBwDRpFEFnaqPk1QA3pMLliHUTnyBtmF-Pg8XkCvz6BJZP7hElPjNqh3EYMUVZCzV4JQSfAIcH_OCdHAb1Itx8-ujrvUBSFjG_7Sd1S7YxDUFti9A0CLIGgDArWuyqt_FNrS9QI86o95fMmmCDiB_JE1lv3jqTtdx39Wn2QgRNYpsSG-s9XbhIGcxtzjemSSYvmUwZsbzw"
-          },
-          "version": "2",
-          "deviceUuid": "ptzay7z5vnjwqrt4cy7fw4qf3q",
-          "uniqueKey": {
-            "alg": "A256GCM",
-            "ext": true,
-            "k": "YiUI0T11cHelZn5BgrWV15N9ruPoX1b0plamBo1MT-s",
-            "key_ops": [
-              "encrypt",
-              "decrypt"
-            ],
-            "kty": "oct",
-            "kid": "ekp4jgicpusjlnuyoyhago6gjq"
-          }
-        }
+      credentials_base64: ewogICAgInZlcmlmaWVyIjogewogICAgICAgICJzYWx0IjogIkw5Ml9kdlZ6bEpRSmJFZnVxVXgxY3ciLAogICAgICAgICJsb2NhbEhhc2giOiAiSUtmRGZISEFnM2dQdm9lNXl3eENWdU9oWHU0dkVtWkFHNjlfZXZ3OW9mUSIKICAgIH0sCiAgICAiZW5jQ3JlZGVudGlhbHMiOiB7CiAgICAgICAgImtpZCI6ICJsb2NhbGF1dGh2MmtleWtpZCIsCiAgICAgICAgImVuYyI6ICJBMjU2R0NNIiwKICAgICAgICAiY3R5IjogImI1K2p3aytqc29uIiwKICAgICAgICAiaXYiOiAiNklGelprZXFEb3dkaFhEQiIsCiAgICAgICAgImRhdGEiOiAiYThmb05rV0dUc1hSTE5LV3hMQmdBVEh6ZTZ1VlFzUXVrOXRMZFlYT2tmRXhZaTNHNkxDdTBaR3pYYlEzZTB1clBUakpsUk13VERlZlFqekRKdXQyZzExYnBfeTRPQVNpc0pQTWpDUXFGck5CajdqZmx2N3BZNVV1OXVCN2RQWGkyTGlMUlVVZ0RaZjRKZXMxQlZIeGE4UXZkLXpVZy10UHdPWEIyckJLV0xsRFg0MWFlWlllZzhaZ0FaR29UTmpKVVB6LWZQREUwbjc1QlNVRTR1Q2R4WHNBVnd5Ykpodm1EUUdiWHdHMmxiVEVwaVFCMm13aVVSUVhDN1VCY2dMRXZWZUlmVVotaE8wRTFjek1SblhHZjNDNXpTMWVSRWlWRWowY0lRU211dk51X3JtME5PaDZKX0d6OHhrc0dsekdKeXdDZG5Xa2NlSFMzcUpsdHI1b2dJSnZieFJNZ1U0OGRpWXl4T1NodmpQMlpYMG9EbzdKbW5ZVVhnOHpCSHVBb01vTFdlZE5SQWZITXpTcHhBcFpNNy1sdTRJVHh1NXlvMHVNbUE1VDdMOW5jckhFNkZnWlVCTkhRQndEUnBGRUZuYXFQazFRQTNwTUxsaUhVVG55QnRtRi1QZzhYa0N2ejZCSlpQN2hFbFBqTnFoM0VZTVVWWkN6VjRKUVNmQUljSF9PQ2RIQWIxSXR4OC11anJ2VUJTRmpHXzdTZDFTN1l4RFVGdGk5QTBDTElHZ0RBcld1eXF0X0ZOclM5UUk4Nm85NWZNbW1DRGlCX0pFMWx2M2pxVHRkeDM5V24yUWdSTllwc1NHLXM5WGJoSUdjeHR6amVtU1NZdm1Vd1pzYnp3IgogICAgfSwKICAgICJ2ZXJzaW9uIjogIjIiLAogICAgImRldmljZVV1aWQiOiAicHR6YXk3ejV2bmp3cXJ0NGN5N2Z3NHFmM3EiLAogICAgInVuaXF1ZUtleSI6IHsKICAgICAgICAiYWxnIjogIkEyNTZHQ00iLAogICAgICAgICJleHQiOiB0cnVlLAogICAgICAgICJrIjogIllpVUkwVDExY0hlbFpuNUJncldWMTVOOXJ1UG9YMWIwcGxhbUJvMU1ULXMiLAogICAgICAgICJrZXlfb3BzIjogWwogICAgICAgICAgICAiZW5jcnlwdCIsCiAgICAgICAgICAgICJkZWNyeXB0IgogICAgICAgIF0sCiAgICAgICAgImt0eSI6ICJvY3QiLAogICAgICAgICJraWQiOiAiZWtwNGpnaWNwdXNqbG51eW95aGFnbzZnanEiCiAgICB9Cn0=
