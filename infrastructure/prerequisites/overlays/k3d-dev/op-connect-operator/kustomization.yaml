@@ -4,8 +4,9 @@ namespace: op-connect-operator
 resources:
 - namespace.yaml
 - ../../../base/op-connect-operator
-# - examples/my-example-secret.yaml
+- ../../../../../secrets/k3d-dev
 - examples/my-example-deployment.yaml
+# - examples/my-example-secret.yaml
 patches:
 - path: helm-release-values.yaml
   target:
