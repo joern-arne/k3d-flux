@@ -1,0 +1,34 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: op-connect-operator
+spec:
+  values:
+    connect:
+      credentials: |-
+        {
+          "verifier": {
+            "salt": "L92_dvVzlJQJbEfuqUx1cw",
+            "localHash": "IKfDfHHAg3gPvoe5ywxCVuOhXu4vEmZAG69_evw9ofQ"
+          },
+          "encCredentials": {
+            "kid": "localauthv2keykid",
+            "enc": "A256GCM",
+            "cty": "b5+jwk+json",
+            "iv": "6IFzZkeqDowdhXDB",
+            "data": "a8foNkWGTsXRLNKWxLBgATHze6uVQsQuk9tLdYXOkfExYi3G6LCu0ZGzXbQ3e0urPTjJlRMwTDefQjzDJut2g11bp_y4OASisJPMjCQqFrNBj7jflv7pY5Uu9uB7dPXi2LiLRUUgDZf4Jes1BVHxa8Qvd-zUg-tPwOXB2rBKWLlDX41aeZYeg8ZgAZGoTNjJUPz-fPDE0n75BSUE4uCdxXsAVwybJhvmDQGbXwG2lbTEpiQB2mwiURQXC7UBcgLEvVeIfUZ-hO0E1czMRnXGf3C5zS1eREiVEj0cIQSmuvNu_rm0NOh6J_Gz8xksGlzGJywCdnWkceHS3qJltr5ogIJvbxRMgU48diYyxOShvjP2ZX0oDo7JmnYUXg8zBHuAoMoLWedNRAfHMzSpxApZM7-lu4ITxu5yo0uMmA5T7L9ncrHE6FgZUBNHQBwDRpFEFnaqPk1QA3pMLliHUTnyBtmF-Pg8XkCvz6BJZP7hElPjNqh3EYMUVZCzV4JQSfAIcH_OCdHAb1Itx8-ujrvUBSFjG_7Sd1S7YxDUFti9A0CLIGgDArWuyqt_FNrS9QI86o95fMmmCDiB_JE1lv3jqTtdx39Wn2QgRNYpsSG-s9XbhIGcxtzjemSSYvmUwZsbzw"
+          },
+          "version": "2",
+          "deviceUuid": "ptzay7z5vnjwqrt4cy7fw4qf3q",
+          "uniqueKey": {
+            "alg": "A256GCM",
+            "ext": true,
+            "k": "YiUI0T11cHelZn5BgrWV15N9ruPoX1b0plamBo1MT-s",
+            "key_ops": [
+              "encrypt",
+              "decrypt"
+            ],
+            "kty": "oct",
+            "kid": "ekp4jgicpusjlnuyoyhago6gjq"
+          }
+        }

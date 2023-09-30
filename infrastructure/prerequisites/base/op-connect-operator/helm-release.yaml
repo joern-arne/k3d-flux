@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: op-connect-operator
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: connect
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: op-connect-operator
+      interval: 12h
