@@ -4,6 +4,10 @@ metadata:
   name: op-connect-operator
 spec:
   values:
+    operator:
+      create: true
+      token:
+        values: eyJhbGciOiJFUzI1NiIsImtpZCI6ImI0NmV4NWlwZHpndjNsd3JvYTczejJoYnJpIiwidHlwIjoiSldUIn0.eyIxcGFzc3dvcmQuY29tL2F1dWlkIjoiRkZKV0hUNk9SUkJJQkdXM0ZJUE5GTE5BS0EiLCIxcGFzc3dvcmQuY29tL3Rva2VuIjoiaWNORVVtS1pBcnlkbVc4VlZiNDRZbFlIUENfSmhQZmMiLCIxcGFzc3dvcmQuY29tL2Z0cyI6WyJ2YXVsdGFjY2VzcyJdLCIxcGFzc3dvcmQuY29tL3Z0cyI6W3sidSI6InhzbHRjZTIydTZlczRiYndhdG9ha3lna3d5IiwiYSI6NDh9XSwiYXVkIjpbImNvbS4xcGFzc3dvcmQuY29ubmVjdCJdLCJzdWIiOiJOSkpSRTVaMzROQkVMRVMzR0ZJWUk1SFc3RSIsImlhdCI6MTY5NjA5Nzk3OCwiaXNzIjoiY29tLjFwYXNzd29yZC5iNSIsImp0aSI6Inl2c2VrbHB1bnB3dDRvdnJ2Zmc1ZTJoNnl1In0.Cw4ABJyQSggavh8fL2vpxQOXeSdkvCNlbNTSE7ouXXtnn16C12naqEPrtLh7vQWq0f78XEFozD1tOXsyt8Sn5g
     connect:
       credentials: |-
         {

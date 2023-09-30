@@ -12,3 +12,4 @@ spec:
         kind: HelmRepository
         name: op-connect-operator
       interval: 12h
+
