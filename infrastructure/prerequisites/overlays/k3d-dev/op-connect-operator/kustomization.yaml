@@ -4,6 +4,8 @@ namespace: op-connect-operator
 resources:
 - namespace.yaml
 - ../../../base/op-connect-operator
+# - my-example-secret.yaml
+# - my-example-deployment.yaml
 patches:
 - path: helm-release-values.yaml
   target:
