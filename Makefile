@@ -89,7 +89,7 @@ k3d-dev-vault-create:
 	op vault create k3d-dev --description "Vault for Kubernetes Cluster k3d-dev"
 	op connect server create k3d-dev --vaults k3d-dev
 	mkdir -p secrets/k3d-dev
-	cp secrets/kustomization.yaml secrets/k3d-dev
+	cp secrets/kustomization.yaml.template secrets/k3d-dev/kustomization.yaml
 	mv 1password-credentials.json secrets/k3d-dev
 	cat secrets/k3d-dev/1password-credentials.json | base64 > secrets/k3d-dev/1password-credentials.json.b64
 	op connect token create k3d-dev-operator --server k3d-dev --vault k3d-dev,r > secrets/k3d-dev/token
