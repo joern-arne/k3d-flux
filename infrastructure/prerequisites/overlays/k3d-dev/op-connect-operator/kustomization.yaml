@@ -5,7 +5,7 @@ resources:
 - namespace.yaml
 - ../../../base/op-connect-operator
 # - examples/my-example-secret.yaml
-# - examples/my-example-deployment.yaml
+- examples/my-example-deployment.yaml
 patches:
 - path: helm-release-values.yaml
   target:
