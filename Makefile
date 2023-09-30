@@ -114,6 +114,13 @@ k3d-dev-vault-init:
 		'Test Section 1.Test Field3[date]=1995-02-23' \
 		'Test Section 2.Test Field4[text]=$(shell pwgen -sn1 24)'
 
+.PHONY: k3d-dev-vault-update-test
+k3d-dev-vault-update-test:
+	@op item edit \
+		--vault='k3d-dev' \
+		'my_example_item' \
+		password=$(shell pwgen -sn1 24)
+
 .PHONY: k3d-dev-vault-delete
 k3d-dev-vault-delete:
 	op vault delete k3d-dev
