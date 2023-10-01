@@ -6,7 +6,7 @@ resources:
 - ../../../base/op-connect-operator
 - ../../../../../secrets/k3d-dev
 - examples/my-example-deployment.yaml
-- examples/my-example-secret.yaml
+# - examples/my-example-secret.yaml
 patches:
 - path: helm-release-values.yaml
   target:
