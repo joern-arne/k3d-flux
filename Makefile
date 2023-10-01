@@ -95,17 +95,22 @@ disable-ingress:
 k3d-dev-vault-create:
 	op vault create k3d-dev --description "Vault for Kubernetes Cluster k3d-dev"
 	op connect server create k3d-dev --vaults k3d-dev
-	mkdir -p secrets/k3d-dev
-	cp secrets/kustomization.yaml.template secrets/k3d-dev/kustomization.yaml
-	mv 1password-credentials.json secrets/k3d-dev
-	cat secrets/k3d-dev/1password-credentials.json | base64 > secrets/k3d-dev/1password-credentials.json.b64
-	op connect token create k3d-dev-operator --server k3d-dev --vault k3d-dev,r > secrets/k3d-dev/token
+	mkdir -p secrets/k3d-dev/originals
+	mv 1password-credentials.json secrets/k3d-dev/originals
+	op connect token create k3d-dev-operator --server k3d-dev --vault k3d-dev,r > secrets/k3d-dev/originals/token
 
+.PHONY: k3d-dev-vault-config
+k3d-dev-vault-config:
+	cp secrets/kustomization.yaml.template secrets/k3d-dev/kustomization.yaml
+	sed -e '$$a\' secrets/k3d-dev/originals/1password-credentials.json > secrets/k3d-dev/1password-credentials.json
+	base64 -i secrets/k3d-dev/1password-credentials.json > secrets/k3d-dev/1password-credentials.json.base64
+	mv secrets/k3d-dev/1password-credentials.json.base64 secrets/k3d-dev/1password-credentials.json
+	tr -d '\n' < secrets/k3d-dev/originals/token > secrets/k3d-dev/token
 
 .PHONY: k3d-dev-vault-update-helm
 k3d-dev-vault-update-helm:
 	@export K3D_OP_TOKEN=$(shell cat secrets/k3d-dev/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
-	@export K3D_OP_CREDENTIALS=$(shell cat secrets/k3d-dev/1password-credentials.json | base64) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
+	@export K3D_OP_CREDENTIALS=$(shell base64 -i secrets/k3d-dev/1password-credentials.json) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
 
 
 .PHONY: k3d-dev-vault-init
