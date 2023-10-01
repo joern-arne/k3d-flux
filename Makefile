@@ -91,6 +91,12 @@ disable-ingress:
 ###
 ###
 
+.PHONY: k3d-dev-vault
+k3d-dev-vault: k3d-dev-vault-create k3d-dev-vault-config k3d-dev-vault-init
+#	create vault
+#	prepare vault secrets config for provisioning
+#	initialize vault with example secrets
+
 .PHONY: k3d-dev-vault-create
 k3d-dev-vault-create:
 	op vault create k3d-dev --description "Vault for Kubernetes Cluster k3d-dev"
@@ -102,15 +108,29 @@ k3d-dev-vault-create:
 .PHONY: k3d-dev-vault-config
 k3d-dev-vault-config:
 	cp secrets/kustomization.yaml.template secrets/k3d-dev/kustomization.yaml
+	
+#	add newline at end of 1password-credentials.json
 	sed -e '$$a\' secrets/k3d-dev/originals/1password-credentials.json > secrets/k3d-dev/1password-credentials.json
+
+#	encode 1password-credentials.json as base64
 	base64 -i secrets/k3d-dev/1password-credentials.json > secrets/k3d-dev/1password-credentials.json.base64
-	mv secrets/k3d-dev/1password-credentials.json.base64 secrets/k3d-dev/1password-credentials.json
+	
+#	remove newline at end of 1password-credentials.json.base64
+	tr -d '\n' < secrets/k3d-dev/1password-credentials.json.base64 > secrets/k3d-dev/1password-credentials.json.base64.nnl
+
+#	clean up unnecessary extensions
+	rm secrets/k3d-dev/1password-credentials.json.base64
+	mv secrets/k3d-dev/1password-credentials.json.base64.nnl secrets/k3d-dev/1password-credentials.json
+
+#	remove newline at end of token
 	tr -d '\n' < secrets/k3d-dev/originals/token > secrets/k3d-dev/token
 
-.PHONY: k3d-dev-vault-update-helm
-k3d-dev-vault-update-helm:
-	@export K3D_OP_TOKEN=$(shell cat secrets/k3d-dev/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
-	@export K3D_OP_CREDENTIALS=$(shell base64 -i secrets/k3d-dev/1password-credentials.json) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
+
+# # OLD WORKAROUND
+# .PHONY: k3d-dev-vault-update-helm
+# k3d-dev-vault-update-helm:
+# 	@export K3D_OP_TOKEN=$(shell cat secrets/k3d-dev/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
+# 	@export K3D_OP_CREDENTIALS=$(shell base64 -i secrets/k3d-dev/1password-credentials.json) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/k3d-dev/op-connect-operator/helm-release-values.yaml 
 
 
 .PHONY: k3d-dev-vault-init
