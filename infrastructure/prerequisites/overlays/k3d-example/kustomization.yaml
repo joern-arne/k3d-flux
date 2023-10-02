@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - cert-manager
 - op-connect-operator
+- keycloak-realm-operator
