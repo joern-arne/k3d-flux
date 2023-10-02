@@ -4,6 +4,7 @@ metadata:
   name: traefik-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    traefik.ingress.kubernetes.io/router.middlewares: kube-system-test-basic-auth@kubernetescrd
 spec:
   ingressClassName: traefik
   rules:
