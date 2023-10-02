@@ -4,7 +4,7 @@ namespace: op-connect-operator
 resources:
 - namespace.yaml
 - ../../../base/op-connect-operator
-- ../../../../../secrets/k3d-example
+# - ../../../../../secrets/k3d-example
 # - examples/my-example-deployment.yaml
 # - examples/my-example-secret.yaml
 patches:
