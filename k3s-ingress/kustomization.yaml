@@ -1,13 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- ingressroute-tcp-k3d-dev.yaml
-- ingressroute-tcp-k3d-example.yaml
-- ingressroute-tcp-k3d-prod.yaml
-patches:
-- patch: |-
-    - op: replace
-      path: /subsets/0/addresses/0/ip
-      value: "10.10.10.87"
-  target:
-    kind: Endpoints
+- k3d-dev
+- k3d-example
+- k3d-prod
