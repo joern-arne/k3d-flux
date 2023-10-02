@@ -6,15 +6,15 @@ GITHUB_OWNER		:= $(shell op item get "GitHub" --fields "GitHub Username")
 GITHUB_TOKEN		:= $(shell op item get "GitHub" --fields token)
 REPO				:= k3d-flux
 CLUSTER_PATH		:= clusters/$(CLUSTER)
-KUBECONFIG			:= ~/.kube/config
+KUBECONFIG			:= $(HOME)/.kube/config
 KUBECONTEXT			:= $(CLUSTER)
 
 # flux reconcile source git flux-system
 # flux get hr podinfo -n podinfo
 # flux get kustomizations --watch
 
-.PHONY: bootstrap
-bootstrap:
+.PHONY: cluster-bootstrap
+cluster-bootstrap:
 	@echo $(shell \
 		GITHUB_TOKEN=${GITHUB_TOKEN} \
 		KUBECONFIG=${KUBECONFIG} \
@@ -67,5 +67,10 @@ vault-delete:
 
 
 .PHONY: vault-secrets
-vault-init:
+vault-secrets:
 	@$(MAKE) -C secrets vault-secrets
+
+
+.PHONY: images-build
+images-build:
+	@$(MAKE) -C images build

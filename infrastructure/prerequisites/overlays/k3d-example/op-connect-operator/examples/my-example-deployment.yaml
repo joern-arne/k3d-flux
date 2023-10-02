@@ -1,0 +1,95 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whoami
+  annotations:
+    operator.1password.io/item-path: vaults/k3d-example/items/my_example_item
+    operator.1password.io/item-name: my-example-deployment
+    operator.1password.io/auto-restart: "true"
+  labels:
+    app: whoami
+spec:
+  selector:
+    matchLabels:
+      app: whoami
+  template:
+    metadata:
+      labels:
+        app: whoami
+    spec:
+      containers:
+      - name: whoami
+        image: traefik/whoami
+        args:
+        - --port
+        - '8080'
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "50Mi"
+          limits:
+            cpu: "750m"
+            memory: "100Mi"
+        ports:
+        - name: web
+          containerPort: 8080
+        env:
+        - name: SECRET_APP_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: app_username
+        - name: SECRET_APP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: app_password
+        - name: SECRET_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: db_username
+        - name: SECRET_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: db_password
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-svc
+spec:
+  ports:
+  - protocol: TCP
+    name: web
+    port: 80
+    # whoami is listening on 8080 from --port argument so that non-root user
+    # can run container as needs to bind to ports higher than 1024
+    targetPort: 8080
+  selector:
+    app: whoami
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-sec-k3d-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: whoami-sec.k3d-example.lessingstrasse.org
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: whoami-svc
+            port:
+              number: 80
+  tls:
+  - hosts:
+    - whoami-sec.k3d-example.lessingstrasse.org
+    secretName: whoami-sec.k3d-example.lessingstrasse.org
