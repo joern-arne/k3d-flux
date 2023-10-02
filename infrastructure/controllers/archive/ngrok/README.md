@@ -2,7 +2,7 @@
 
 [keycloak and ngrok](https://gist.github.com/rafi/ec8c584e3a3a3c898903a714c2d62976)
 
-```bash
+```zsh
 export NGROK_API_KEY=usr_2VXbeBymO3X0bYQz2r97Yzlon9r
 export NGROK_AUTHTOKEN=2VXbe6quxsjbxYtkvuYgf0STLLG_6C9NPDwFJt2ZER5j41CFx
 export NAMESPACE=ngrok-ingress-controller

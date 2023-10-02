@@ -56,9 +56,8 @@ disable-ingress:
 ###
 ###
 
-.PHONY: vault
 vault:
-	@$(MAKE) -C secrets vault
+	@$(MAKE) -C secrets $(CLUSTER)
 
 .PHONY: vault-apply
 vault-apply:
@@ -77,3 +76,4 @@ vault-secrets:
 .PHONY: images-build
 images-build:
 	@$(MAKE) -C images build
+

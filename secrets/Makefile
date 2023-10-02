@@ -2,21 +2,27 @@ ifndef CLUSTER
 $(error CLUSTER is not set)
 endif
 
+
+
 .PHONY: default
 default:
 	@echo "No default"
 
-.PHONY: vault
-vault: vault-create vault-config vault-secrets
+
+
+$(CLUSTER):
+	$(MAKE) vault-create vault-config vault-secrets
 #	create vault
 #	prepare vault secrets config for provisioning
 #	initialize vault with example secrets
 
+
+
 .PHONY: vault-delete
 vault-delete:
-	op vault delete $(CLUSTER)
+	-op vault delete $(CLUSTER)
 	@echo "----------"
-	op connect server delete $(CLUSTER)
+	-op connect server delete $(CLUSTER)
 	@echo "----------"
 	@rm -rf $(CLUSTER)
 
@@ -31,6 +37,8 @@ vault-create:
 	@mv 1password-credentials.json $(CLUSTER)/originals
 	@op connect token create $(CLUSTER)-operator --server $(CLUSTER) --vault $(CLUSTER),r > $(CLUSTER)/originals/token
 	@echo "----------"
+
+
 
 .PHONY: vault-config
 vault-config:
@@ -55,12 +63,6 @@ vault-config:
 	@tr -d '\n' < $(CLUSTER)/originals/token > $(CLUSTER)/token
 	@echo "----------"
 
-
-# # OLD WORKAROUND
-# .PHONY: vault-update-helm
-# vault-update-helm:
-# 	@export K3D_OP_TOKEN=$(shell cat $(CLUSTER)/token) && yq -i '.spec.values.operator.token.value = env(K3D_OP_TOKEN)' infrastructure/prerequisites/overlays/$(CLUSTER)/op-connect-operator/helm-release-values.yaml 
-# 	@export K3D_OP_CREDENTIALS=$(shell base64 -i $(CLUSTER)/1password-credentials.json) && yq -i '.spec.values.connect.credentials_base64 = env(K3D_OP_CREDENTIALS)' infrastructure/prerequisites/overlays/$(CLUSTER)/op-connect-operator/helm-release-values.yaml 
 
 
 .PHONY: vault-secrets
