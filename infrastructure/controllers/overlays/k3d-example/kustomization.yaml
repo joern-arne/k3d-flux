@@ -4,5 +4,3 @@ resources:
 - traefik
 - weave
 - cert-manager
-# - postgres-cluster
-# - keycloak

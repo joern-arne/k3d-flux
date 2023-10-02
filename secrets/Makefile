@@ -11,7 +11,7 @@ default:
 
 
 $(CLUSTER):
-	$(MAKE) vault-create vault-config vault-secrets
+	@$(MAKE) vault-create vault-config vault-secrets
 #	create vault
 #	prepare vault secrets config for provisioning
 #	initialize vault with example secrets
