@@ -36,6 +36,7 @@ vault-create:
 vault-config:
 	@echo "Prepare vault secrets for 1Password-Operator deployment"
 	@cp kustomization.yaml.template $(CLUSTER)/kustomization.yaml
+	@cp namespace.yaml.template $(CLUSTER)/namespace.yaml
 	
 #	add newline at end of 1password-credentials.json
 	@sed -e '$$a\' $(CLUSTER)/originals/1password-credentials.json > $(CLUSTER)/1password-credentials.json

@@ -14,7 +14,7 @@ KUBECONTEXT			:= $(CLUSTER)
 # flux get kustomizations --watch
 
 .PHONY: cluster-bootstrap
-cluster-bootstrap:
+cluster-bootstrap: vault-apply
 	@echo $(shell \
 		GITHUB_TOKEN=${GITHUB_TOKEN} \
 		KUBECONFIG=${KUBECONFIG} \
@@ -60,6 +60,9 @@ disable-ingress:
 vault:
 	@$(MAKE) -C secrets vault
 
+.PHONY: vault-apply
+vault-apply:
+	@kubectl --kubeconfig $(KUBECONFIG) --context $(KUBECONTEXT) apply -k secrets/$(CLUSTER)
 
 .PHONY: vault-delete
 vault-delete:
