@@ -30,13 +30,13 @@ cluster-up: cluster-create cluster-bootstrap
 
 .PHONY: cluster-create
 cluster-create: enable-ingress
-	-rm -rf /tmp/$(CLUSTER)-vol
-	mkdir -p /tmp/$(CLUSTER)-vol
-	k3d cluster create --config $(CLUSTER).config.yaml
+	-@rm -rf /tmp/$(CLUSTER)-vol
+	@mkdir -p /tmp/$(CLUSTER)-vol
+	@k3d cluster create --config $(CLUSTER).config.yaml
 
 .PHONY: cluster-delete
 cluster-delete: disable-ingress
-	k3d cluster delete --config $(CLUSTER).config.yaml
+	@k3d cluster delete --config $(CLUSTER).config.yaml
 
 ###
 ###
