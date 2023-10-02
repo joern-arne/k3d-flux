@@ -34,16 +34,26 @@ spec:
         - name: web
           containerPort: 8080
         env:
-        - name: SECRET_USERNAME
+        - name: SECRET_APP_USERNAME
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: username
-        - name: SECRET_PASSWORD
+              key: app.username
+        - name: SECRET_APP_PASSWORD
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: password
+              key: app.password
+        - name: SECRET_DB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: db.username
+        - name: SECRET_DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-example-deployment
+              key: db.password
 ---
 apiVersion: v1
 kind: Service
