@@ -4,4 +4,4 @@ resources:
 - cert-manager
 # - keycloak-operator
 # - postgres-operator
-# - op-connect-operator
+- op-connect-operator

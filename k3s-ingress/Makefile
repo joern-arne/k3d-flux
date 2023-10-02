@@ -7,7 +7,7 @@ enable-ingress:
 
 .PHONY: disable-ingress
 disable-ingress:
-	@( \
+	-@( \
 		export KUBECONFIG=/Users/u299496/git/github.com/joern-arne/nexus-services/k3s/kubeconfig && \
 		kubectl delete -k . \
 	)

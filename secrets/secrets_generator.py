@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
 
+import os, sys
+import argparse
 import re
 import yaml, json
 import subprocess
 import random
 import string
 
-def load_config(location='secrets/k3d-dev.secrets.yaml'):
-    with open(location, 'r') as file:
+
+
+def load_config(filename):
+    if not os.path.isfile(filename):
+        print(f'File "{filename}" does not exist')
+        sys.exit(1)
+
+    with open(filename, 'r') as file:
         config = yaml.safe_load(file)
     
     secrets = config.get('secrets')
@@ -154,6 +162,7 @@ def has_up_to_date_tags(secret, existing_secrets):
     return exists, up_to_date_tags
 
 
+
 def op_update(vault, secret):
     print(f'update {secret.get("title")} in {vault}')
     s = subprocess.Popen(
@@ -171,7 +180,17 @@ def op_update(vault, secret):
 
 
 if __name__ == '__main__':
-    vault, secrets = load_config()
+
+    parser = argparse.ArgumentParser(
+        description='Secrets-File CRUD for a 1Password Vault via 1Password CLI',
+        epilog='Author: Jörn Arne Göttig (github.com/joern-arne)'
+    )
+    parser.add_argument('filename',
+        help='location of config file'
+    )
+    args = parser.parse_args()
+
+    vault, secrets = load_config(args.filename)
     existing_secrets = op_get_list(vault)
 
     # add / update secrets
@@ -182,7 +201,7 @@ if __name__ == '__main__':
         elif not up_to_date_tags:
             op_update(vault, secret)
 
-    # remove undefined secrets
+    # remove secrets from vault that are not defined in the config file
     for existing_secret in existing_secrets:
         if existing_secret.get('title') not in [item.get('title') for item in secrets]:
             op_delete(vault, existing_secret)
