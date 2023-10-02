@@ -5,6 +5,8 @@ metadata:
   name: keycloak
 spec:
   instances: 1
+  ingress:
+    enabled: false
   db:
     vendor: postgres
     host: postgres-db
