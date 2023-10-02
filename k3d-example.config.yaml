@@ -1,7 +1,7 @@
 apiVersion: k3d.io/v1alpha5
 kind: Simple
 metadata:
-  name: prod
+  name: example
 
 servers: 1
 agents: 2
@@ -9,26 +9,26 @@ agents: 2
 kubeAPI:
   host: "localhost"
   hostIP: "127.0.0.1"
-  hostPort: "6447"
+  hostPort: "6446"
 
 image: rancher/k3s:v1.27.5-k3s1
 
 # network: multiserver-net
 # subnet: "172.28.0.0/16"
 
-token: RX35duoNGSjD17Dw
+token: QoV6TFxS0mZOFyja
 
 volumes:
-- volume: /tmp/k3d-prod-vol:/tmp/k3d-prod-vol
+- volume: /tmp/k3d-example-vol:/tmp/k3d-example-vol
   nodeFilters:
   - server:*
   - agent:*
 
 ports:
-- port: 80:80
+- port: 9080:80
   nodeFilters:
   - loadbalancer
-- port: 443:443
+- port: 9443:443
   nodeFilters:
   - loadbalancer
 
@@ -39,17 +39,17 @@ ports:
 
 registries:
   create:
-    name: k3d-prod-docker-io
+    name: k3d-example-docker-io
     proxy:
       remoteURL: https://registry-1.docker.io
     volumes:
-    - /Users/joern/git/github.com/joern-arne/k3d-flux/registry-prod:/var/lib/registry
+    - /Users/joern/git/github.com/joern-arne/k3d-flux/registry-example:/var/lib/registry
     # - /tmp/k3d-dev-registry:/var/lib/registry
   config: |
     mirrors:
       "docker.io":
         endpoint:
-          - http://k3d-prod-docker-io:5000
+          - http://k3d-example-docker-io:5000
 
 # hostAliases: # /etc/hosts style entries to be injected into /etc/hosts in the node containers and in the NodeHosts section in CoreDNS
 #   - ip: 1.2.3.4

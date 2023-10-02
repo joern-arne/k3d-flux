@@ -38,22 +38,22 @@ spec:
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: app.username
+              key: app_username
         - name: SECRET_APP_PASSWORD
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: app.password
+              key: app_password
         - name: SECRET_DB_USERNAME
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: db.username
+              key: db_username
         - name: SECRET_DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: my-example-deployment
-              key: db.password
+              key: db_password
 ---
 apiVersion: v1
 kind: Service

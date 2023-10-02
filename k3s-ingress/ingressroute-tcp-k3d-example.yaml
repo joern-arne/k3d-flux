@@ -1,0 +1,43 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRouteTCP
+metadata:
+  name: k3d-example
+  namespace: kube-system
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - match: |-
+      HostSNI(`k3d-example.lessingstrasse.org`) ||
+      HostSNIRegexp(`{subdomain:.*}.k3d-example.lessingstrasse.org`)
+    services:
+    - name: k3d-example
+      port: 9443
+  tls:
+    passthrough: true
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: k3d-example
+  namespace: kube-system
+spec:
+  ports:
+  - name: k3d-example-https
+    protocol: TCP
+    port: 9443
+    targetPort: 9443
+
+---
+kind: Endpoints
+apiVersion: v1
+metadata:
+  name: k3d-example
+  namespace: kube-system
+subsets:
+- addresses:
+  - ip: "10.10.10.4"
+  ports:
+  - port: 9443
+    name: k3d-example-https
