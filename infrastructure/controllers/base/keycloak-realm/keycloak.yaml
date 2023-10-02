@@ -2,7 +2,7 @@
 apiVersion: k8s.keycloak.org/v2alpha1
 kind: Keycloak
 metadata:
-  name: example-kc
+  name: keycloak
 spec:
   instances: 1
   db:
@@ -15,6 +15,7 @@ spec:
       name: keycloak-db-secret
       key: password
   http:
-    tlsSecret: example-tls-secret
+    httpEnabled: true
   hostname:
-    hostname: example.com
+    strict: false
+    strictBackchannel: false
