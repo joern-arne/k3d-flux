@@ -1,4 +1,4 @@
-# keycloak
+# keycloak-operator
 [documentation](https://www.keycloak.org/guides#operator)
 
 ```zsh
