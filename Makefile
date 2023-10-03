@@ -25,6 +25,12 @@ cluster-bootstrap: vault-apply
 		--context=${KUBECONTEXT} \
 		--personal)
 
+	@echo ""
+	@echo "Bootstapping finished :)"
+	@echo ""
+	@echo "To deploy keycloak realm run: [make deploy-realm]"
+	@echo ""
+
 .PHONY: cluster-up
 cluster-up: cluster-create cluster-bootstrap
 
@@ -80,6 +86,6 @@ images-build:
 
 
 
-.PHONY: enable-keycloak-operator
-enable-keycloak-operator:
-	@$(MAKE) -C infrastructure/controllers/overlays/k3d-example/keycloak-realm/realm-k3d-example enable
+.PHONY: deploy-realm
+deploy-realm:
+	@$(MAKE) -C infrastructure/controllers/overlays/$(CLUSTER)/keycloak-realm/realm-$(CLUSTER) enable
