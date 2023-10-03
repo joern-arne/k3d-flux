@@ -82,5 +82,4 @@ images-build:
 
 .PHONY: enable-keycloak-operator
 enable-keycloak-operator:
-	@$(MAKE) -C infrastructure/controllers/overlays/k3d-example/keycloak-realm/realm-k3d-example update
-	@kubectl --kubeconfig $(KUBECONFIG) --context $(KUBECONTEXT) apply -k infrastructure/controllers/overlays/k3d-example/keycloak-realm/realm-k3d-example
+	@$(MAKE) -C infrastructure/controllers/overlays/k3d-example/keycloak-realm/realm-k3d-example enable
