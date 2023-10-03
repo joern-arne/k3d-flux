@@ -8,3 +8,7 @@ spec:
     value: https://keycloak.k3d-example.lessingstrasse.org
   - name: proxy
     value: edge
+  http:
+    tlsSecret: keycloak.k3d-example.lessingstrasse.org
+  hostname:
+    hostname: keycloak.k3d-example.lessingstrasse.org
