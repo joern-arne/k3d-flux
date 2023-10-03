@@ -3,6 +3,7 @@
 # Current TODO
 * configure keycloak-realm-operator on k3d-example
   * continue at [step 4](https://github.com/keycloak/keycloak-realm-operator) - Create resources for the Realm Operator to tell it where the external Keycloak lives
+  * properly setup realm for traefik-forward-auth
 
 # All TODOs
 ## Cloud
@@ -14,11 +15,13 @@
 * check how to automate keycloak ([keycloak operator](https://operatorhub.io/operator/keycloak-operator)?)
 
 ## Operations
-* check out [OLM](https://github.com/operator-framework/operator-lifecycle-manager)
-
+* check out [OLM](https://github.com/operator-framework/operator-lifecycle-manager) / [operatorhub.io cert-manager](https://operatorhub.io/operator/cert-manager)
+* check out [flux guides](https://fluxcd.io/flux/guides/)
 ## Domain management
 * decide on dns (route53, cloudflare, oci) for prod cluster
 
+## Secrets management
+* check out flux + SOPS
 ## Storage
 * decide on storage solution at oci
   * nfs
