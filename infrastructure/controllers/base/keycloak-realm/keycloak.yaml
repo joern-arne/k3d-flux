@@ -16,8 +16,8 @@ spec:
     passwordSecret:
       name: keycloak-db-secret
       key: password
-  http:
-    httpEnabled: true
-  hostname:
-    strict: false
-    strictBackchannel: false
+  # http:
+  #   httpEnabled: true
+  # hostname:
+  #   strict: false
+  #   strictBackchannel: false
