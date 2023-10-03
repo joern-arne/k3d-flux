@@ -18,6 +18,8 @@ spec:
       readOnlyRootFilesystem: true
       runAsNonRoot: true
       runAsUser: 1000
+    adminUser:
+      username: joern
     ingress:
       enabled: true
       className: traefik
