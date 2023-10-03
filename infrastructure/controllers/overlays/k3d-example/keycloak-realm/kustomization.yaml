@@ -3,7 +3,11 @@ kind: Kustomization
 namespace: keycloak-realm-operator
 resources:
 - ../../../base/keycloak-realm
-# - ingress-k3d.yaml
+- certificate.yaml
+- ingress-k3d.yaml
+
+# - realm-k3d-example
+
 patches:
 - path: deployment-patch.yaml
   target:

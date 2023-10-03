@@ -1,18 +1,21 @@
+# This is a realm definition handled by the new Keycloak Operator
 apiVersion: legacy.k8s.keycloak.org/v1alpha1
 kind: KeycloakRealm
 metadata:
-  name: example-keycloakrealm
+  name: external-realm
   labels:
     app: external-sso
 spec:
+  # unmanaged: true
   instanceSelector:
     matchLabels:
       app: external-sso
+
   realm:
-    id: "basic"
-    realm: "basic"
+    id: k3d-example
+    realm: k3d-example
     enabled: True
-    displayName: "Basic Realm"
+    displayName: "k3d-example Realm"
 
     # Events
     adminEventsEnabled: True
@@ -91,26 +94,22 @@ spec:
     - IDENTITY_PROVIDER_FIRST_LOGIN_ERROR
 
     # Users
-    users:
-    - username: "realm_admin"
-      firstName: "John"
-      lastName: "Doe"
-      email: "jdoe@redhat.com"
-      enabled: True
-      emailVerified: False
-      realmRoles:
-      - "offline_access"
-      - "uma_authorization"
-      clientRoles:
-        account:
-        - "manage-account"
-        - "view-profile"
-        realm-management:
-        - "manage-users"
-        - "view-users"
-        - "query-users"
-        - "create-client"
-
-  realmOverrides:
-  - forFlow: "browser"
-    identityProvider: "openshift-v4"
+    # users:
+    # - username: "realm_admin"
+    #   firstName: "Jörn Arne"
+    #   lastName: "Göttig"
+    #   email: "joern.arne@gmail.com"
+    #   enabled: True
+    #   emailVerified: True
+    #   realmRoles:
+    #   - "offline_access"
+    #   - "uma_authorization"
+    #   clientRoles:
+    #     account:
+    #     - "manage-account"
+    #     - "view-profile"
+    #     realm-management:
+    #     - "manage-users"
+    #     - "view-users"
+    #     - "query-users"
+    #     - "create-client"
