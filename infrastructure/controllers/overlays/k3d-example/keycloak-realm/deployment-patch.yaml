@@ -3,11 +3,11 @@ kind: Keycloak
 metadata:
   name: keycloak
 spec:
-  additionalOptions:
-  - name: hostname-url
-    value: https://keycloak.k3d-example.lessingstrasse.org
-  - name: proxy
-    value: edge
+  # additionalOptions:
+  # - name: hostname-url
+  #   value: https://keycloak.k3d-example.lessingstrasse.org
+  # - name: proxy
+  #   value: edge
   http:
     tlsSecret: keycloak.k3d-example.lessingstrasse.org
   hostname:
