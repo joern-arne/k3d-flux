@@ -1,14 +1,16 @@
-PW := $(shell kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin -o jsonpath='{.data.password}' | base64 --decode)
-
 .PHONY: get
 get:
-	@echo $(PW)
+	@while ! kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin ; do echo "Waiting for my secret. CTRL-C to exit."; sleep 5; done
+	@echo $(shell kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin -o jsonpath='{.data.password}' | base64 --decode)
 
 .PHONY: update
 update:
-	sed -i '' -E 's/(.*ADMIN_PASSWORD: )(.*)/\1$(PW)/' externalkeycloak.yaml
+	@while ! kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin ; do echo "Waiting for my secret. CTRL-C to exit."; sleep 5; done
+	@sed -i '' -E 's/(.*ADMIN_PASSWORD: )(.*)/\1$(shell kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin -o jsonpath='{.data.password}' | base64 --decode)/' externalkeycloak.yaml
+	@echo ""
+	@grep ADMIN_ externalkeycloak.yaml
+	@echo ""
 
-
-# while ! kubectl --context $(CLUSTER) -n keycloak-realm-operator get secret keycloak-initial-admin ; do echo "Waiting for my secret. CTRL-C to exit."; sleep 1; done
-
-# while ! kubectl --context $CLUSTER -n keycloak-realm-operator get secret keycloak-initial-admin ; do echo "Waiting for my secret. CTRL-C to exit."; sleep 1; done
+.PHONY: enable
+enable: update
+	@kubectl --context $(CLUSTER) apply -k .
