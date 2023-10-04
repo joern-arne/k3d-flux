@@ -22,6 +22,8 @@
 
 ## Secrets management
 * check out flux + SOPS
+* implement [ESO](https://external-secrets.io/v0.9.5/provider/1password-automation/) and integrate with 1Password
+
 ## Storage
 * decide on storage solution at oci
   * nfs
