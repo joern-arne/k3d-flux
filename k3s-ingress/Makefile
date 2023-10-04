@@ -3,7 +3,7 @@ $(error CLUSTER is not set)
 endif
 
 #macOS
-LOCAL_IP := $(shell ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep '10.10.10' | tail -1)
+LOCAL_IP := $(shell ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep -E '10.10.10.|192.168.10.' | tail -1)
 
 ifndef LOCAL_IP
 $(error LOCAL_IP is not set)
