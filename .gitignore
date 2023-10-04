@@ -2,3 +2,7 @@
 registry-dev
 registry-example
 registry-prod
+
+k3s-ingress/k3d-dev/kustomization.yaml
+k3s-ingress/k3d-example/kustomization.yaml
+k3s-ingress/k3d-prod/kustomization.yaml
