@@ -1,11 +1,13 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: traefik-forward-auth-local-ingress
+  name: traefik-forward-auth-k3d-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
 spec:
   ingressClassName: traefik
   rules:
-  - host: auth.127.0.0.1.nip.io
+  - host: auth.k3d-dev.lessingstrasse.org
     http:
       paths:
       - path: /
@@ -15,3 +17,7 @@ spec:
             name: traefik-forward-auth-svc
             port:
               number: 80
+  tls:
+  - hosts:
+    - auth.k3d-dev.lessingstrasse.org
+    secretName: auth.k3d-dev.lessingstrasse.org

@@ -5,4 +5,4 @@ resources:
 - externalkeycloak.yaml
 - realm.yaml
 - user_joern.arne.yaml
-# - client.yaml
+- client_traefik-forward-auth.yaml
