@@ -5,5 +5,5 @@ resources:
 - weave
 - cert-manager
 - keycloak-realm
-# - traefik-forward-auth
+- traefik-forward-auth
 # - postgres-cluster
