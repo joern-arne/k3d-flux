@@ -8,10 +8,24 @@ spec:
   realmSelector:
     matchLabels:
       app: external-sso
-  roles:
-  - name: some-client-role
   client:
     clientId: traefik-forward-auth
     secret: VKpUF1VJtcPGSVpAMbwQ0vdGJoA4TPhO
     clientAuthenticatorType: client-secret
     protocol: openid-connect
+    standardFlowEnabled: true
+    directAccessGrantsEnabled: true
+    redirectUris:
+    - https://auth.k3s.lessingstrasse.org/_oauth
+    webOrigins:
+    - '/*' # redirectUris
+    defaultClientScopes:
+    - email
+    - profile
+    - roles
+    - web-origins
+    optionalClientScopes:
+    - address
+    - microprofile-jwt
+    - offline_access
+    - phone
