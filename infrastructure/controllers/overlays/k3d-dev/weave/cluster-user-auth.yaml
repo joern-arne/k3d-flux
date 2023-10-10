@@ -1,0 +1,6 @@
+apiVersion: onepassword.com/v1
+kind: OnePasswordItem
+metadata:
+  name: cluster-user-auth
+spec:
+  itemPath: "vaults/k3d-example/items/weave"
