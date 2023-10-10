@@ -12,6 +12,6 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: webserver-svc
+            name: whoami-svc
             port:
               number: 80
