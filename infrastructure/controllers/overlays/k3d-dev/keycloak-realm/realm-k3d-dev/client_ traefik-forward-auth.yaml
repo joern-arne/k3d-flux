@@ -1,7 +1,7 @@
 apiVersion: legacy.k8s.keycloak.org/v1alpha1
 kind: KeycloakClient
 metadata:
-  name: client-secret
+  name: traefik-forward-auth
   labels:
     app: external-sso
 spec:
@@ -11,7 +11,7 @@ spec:
   roles:
   - name: some-client-role
   client:
-    clientId: client-secret
-    secret: client-secret
+    clientId: traefik-forward-auth
+    secret: VKpUF1VJtcPGSVpAMbwQ0vdGJoA4TPhO
     clientAuthenticatorType: client-secret
     protocol: openid-connect

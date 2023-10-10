@@ -34,6 +34,13 @@ cluster-bootstrap: vault-apply
 .PHONY: cluster-up
 cluster-up: cluster-create cluster-bootstrap
 
+.PHONY: cluster-cycle
+cluster-cycle: cluster-delete wait cluster-up
+
+.PHONY: wait
+wait:
+	@sleep 5
+
 .PHONY: cluster-create
 cluster-create: enable-ingress
 	-@rm -rf /tmp/$(CLUSTER)-vol
