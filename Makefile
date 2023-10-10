@@ -62,6 +62,7 @@ disable-ingress:
 ###
 ###
 
+.PHONY: vault
 vault:
 	@$(MAKE) -C secrets $(CLUSTER)
 

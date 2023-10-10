@@ -156,7 +156,7 @@ def has_up_to_date_tags(secret, existing_secrets):
             exists = up_to_date_tags = True
 
     else:
-        print(f'{title} needs is missing')
+        print(f'{title} is missing')
         exists = up_to_date_tags = False
 
     return exists, up_to_date_tags
