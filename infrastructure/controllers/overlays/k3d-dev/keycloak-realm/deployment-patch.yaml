@@ -8,7 +8,7 @@ spec:
 
   additionalOptions:
   - name: hostname-url
-    value: https://keycloak.k3d-example.lessingstrasse.org
+    value: https://keycloak.k3d-dev.lessingstrasse.org
   - name: proxy
     value: edge
 
