@@ -9,5 +9,5 @@ data:
   AUTH_HOST: auth.k3d-dev.lessingstrasse.org
   URL_PATH: /_oauth
   DEFAULT_PROVIDER: oidc
-  PROVIDER_URI: https://keycloak.k3d-dev.lessingstrasse.org
+  PROVIDER_URI: https://keycloak.k3d-dev.lessingstrasse.org/realms/k3d-dev
   CLIENT_ID: traefik-forward-auth
