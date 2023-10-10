@@ -16,7 +16,7 @@ spec:
     standardFlowEnabled: true
     directAccessGrantsEnabled: true
     redirectUris:
-    - https://auth.k3s.lessingstrasse.org/_oauth
+    - https://auth.k3d-dev.lessingstrasse.org/_oauth
     webOrigins:
     - '/*' # redirectUris
     defaultClientScopes:
