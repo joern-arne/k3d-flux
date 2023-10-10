@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: keycloak-realm-operator
+resources:
+- externalkeycloak.yaml
+- realm.yaml
+- user_joern.arne.yaml
+# - client.yaml

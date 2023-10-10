@@ -1,0 +1,24 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: Keycloak
+metadata:
+  name: keycloak
+spec:
+  ingress:
+    enabled: false
+
+  additionalOptions:
+  - name: hostname-url
+    value: https://keycloak.k3d-example.lessingstrasse.org
+  - name: proxy
+    value: edge
+
+  # http:
+  #   tlsSecret: keycloak.k3d-example.lessingstrasse.org
+  # hostname:
+  #   hostname: keycloak.k3d-example.lessingstrasse.org
+
+  http:
+    httpEnabled: true
+  hostname:
+    strict: false
+    strictBackchannel: false
