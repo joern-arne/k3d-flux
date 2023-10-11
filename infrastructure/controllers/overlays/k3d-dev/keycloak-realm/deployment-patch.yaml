@@ -8,9 +8,12 @@ spec:
 
   additionalOptions:
   - name: hostname-url
-    value: https://keycloak.k3d-dev.lessingstrasse.org
+    value: https://keycloak.k3d-dev.lessingstrasse.org/
   - name: proxy
     value: edge
+
+  - name: http-relative-path
+    value: /auth
 
   # http:
   #   tlsSecret: keycloak.k3d-example.lessingstrasse.org
@@ -22,12 +25,3 @@ spec:
   hostname:
     strict: false
     strictBackchannel: false
-
-  # unsupported:
-  #   podTemplate:
-  #     spec:
-  #       containers:
-  #       - name: keycloak
-  #         env:
-  #         - name: KC_HTTP_RELATIVE_PATH
-  #           value: /auth

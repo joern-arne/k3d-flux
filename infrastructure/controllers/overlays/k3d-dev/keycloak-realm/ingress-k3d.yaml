@@ -15,6 +15,7 @@ spec:
             name: keycloak-service
             port:
               number: 8080
+        path: /auth
         pathType: ImplementationSpecific
 
   tls:
