@@ -7,13 +7,14 @@ spec:
     enabled: false
 
   additionalOptions:
-  - name: hostname-url
-    value: https://keycloak.k3d-dev.lessingstrasse.org/
-  - name: proxy
-    value: edge
 
+  # - name: hostname-url
+  #   value: https://keycloak.k3d-dev.lessingstrasse.org/
   - name: http-relative-path
     value: auth
+
+  - name: proxy
+    value: edge
 
   # http:
   #   tlsSecret: keycloak.k3d-example.lessingstrasse.org
@@ -25,14 +26,3 @@ spec:
   hostname:
     strict: false
     strictBackchannel: false
-
-  # unsupported:
-  #   podTemplate:
-  #     spec:
-  #       containers:
-  #       - name: keycloak
-  #         ports:
-  #         - containerPort: 8081
-  #           name: 8080tcp
-  #           protocol: TCP
-
