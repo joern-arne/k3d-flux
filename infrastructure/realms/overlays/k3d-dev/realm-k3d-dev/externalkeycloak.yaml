@@ -7,7 +7,7 @@ metadata:
     app: external-sso
 spec:
   # url: https://example-kc-service:8443 # set to the Service created by the new Keycloak Operator
-  url: http://keycloak-service:8080 # set to the Service created by the new Keycloak Operator
+  url: http://keycloak-service:8080/auth # set to the Service created by the new Keycloak Operator
   contextRoot: /
 ---
 # The Admin Credentials need to match those used/created by the new Keycloak Operator
