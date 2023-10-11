@@ -98,3 +98,8 @@ spec:
             configMapKeyRef:
               name: traefik-forward-auth
               key: URL_PATH
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: traefik-forward-auth
+              key: LOG_LEVEL
