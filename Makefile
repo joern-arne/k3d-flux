@@ -28,7 +28,7 @@ cluster-bootstrap: vault-apply
 	@echo ""
 	@echo "Bootstapping finished :)"
 	@echo ""
-	@echo "To deploy keycloak realm run: [make deploy-realm]"
+	@echo "To get keycloak credentials run: [make get-keycloak-credentials]"
 	@echo ""
 
 .PHONY: cluster-up
@@ -94,6 +94,6 @@ images-build:
 
 
 
-.PHONY: deploy-realm
-deploy-realm:
+.PHONY: get-keycloak-credentials
+get-keycloak-credentials:
 	@$(MAKE) -C infrastructure/controllers/overlays/$(CLUSTER)/keycloak-realm/realm-$(CLUSTER) update
