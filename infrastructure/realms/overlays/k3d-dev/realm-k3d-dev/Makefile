@@ -17,4 +17,3 @@ update:
 enable: update
 	@kubectl --context $(CLUSTER) apply -k .
 
-	

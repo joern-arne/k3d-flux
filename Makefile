@@ -96,4 +96,4 @@ images-build:
 
 .PHONY: deploy-realm
 deploy-realm:
-	@$(MAKE) -C infrastructure/controllers/overlays/$(CLUSTER)/keycloak-realm/realm-$(CLUSTER) enable
+	@$(MAKE) -C infrastructure/controllers/overlays/$(CLUSTER)/keycloak-realm/realm-$(CLUSTER) update
