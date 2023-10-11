@@ -4,4 +4,4 @@ resources:
 - traefik
 - weave
 - cert-manager
-- keycloak-realm
+# - keycloak-realm

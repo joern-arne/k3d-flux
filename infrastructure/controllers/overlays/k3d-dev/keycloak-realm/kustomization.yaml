@@ -6,8 +6,6 @@ resources:
 - certificate.yaml
 - ingress-k3d.yaml
 
-# - realm-k3d-example
-
 patches:
 - path: deployment-patch.yaml
   target:
