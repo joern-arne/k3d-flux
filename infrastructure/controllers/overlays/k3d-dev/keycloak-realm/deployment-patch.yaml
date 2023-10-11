@@ -22,3 +22,12 @@ spec:
   hostname:
     strict: false
     strictBackchannel: false
+
+  unsupported:
+    podTemplate:
+      spec:
+        containers:
+        - name: keycloak
+          env:
+          - name: KC_HTTP_RELATIVE_PATH
+            value: /auth
