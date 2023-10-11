@@ -9,24 +9,24 @@ spec:
     matchLabels:
       app: external-sso
   user:
-    username: "joern.arne"
-    firstName: "Jörn Arne"
-    lastName: "Göttig"
-    email: "joern.arne@gmail.com"
+    username: joern.arne
+    firstName: Jörn Arne
+    lastName: Göttig
+    email: joern.arne@gmail.com
     enabled: True
     emailVerified: True
     credentials:
-    - type: "password"
-      value: "vieTu0xi"
+    - type: password
+      value: vieTu0xi
     realmRoles:
-    - "offline_access"
-    - "uma_authorization"
+    - offline_access
+    - uma_authorization
     clientRoles:
       account:
-      - "manage-account"
-      - "view-profile"
+      - manage-account
+      - view-profile
       realm-management:
-      - "manage-users"
-      - "view-users"
-      - "query-users"
-      - "create-client"
+      - manage-users
+      - view-users
+      - query-users
+      - create-client
