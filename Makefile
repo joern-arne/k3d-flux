@@ -96,4 +96,4 @@ images-build:
 
 .PHONY: get-keycloak-credentials
 get-keycloak-credentials:
-	@$(MAKE) -C infrastructure/controllers/overlays/$(CLUSTER)/keycloak-realm/realm-$(CLUSTER) update
+	@$(MAKE) -C infrastructure/realms/overlays/$(CLUSTER)/realm-$(CLUSTER) get
