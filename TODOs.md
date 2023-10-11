@@ -3,6 +3,9 @@
 https://github.com/keycloak/keycloak/issues/10464
 https://qdnqn.com/how-to-configure-traefik-on-k3s/
 
+https://www.keycloak.org/migration/migrating-to-quarkus --> Migrate to new AIO realm import
+
+
 # Current TODO
 * configure keycloak-realm-operator on k3d-example
   * continue at [step 4](https://github.com/keycloak/keycloak-realm-operator) - Create resources for the Realm Operator to tell it where the external Keycloak lives
