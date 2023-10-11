@@ -19,7 +19,8 @@ spec:
       containers:
       - name: traefik-forward-auth
         # image: thomseddon/traefik-forward-auth:2.2.0-arm
-        image: joernarne/traefik-forward-auth:3.1.0
+        # image: joernarne/traefik-forward-auth:3.1.0
+        image: mesosphere/traefik-forward-auth:3.1.0
         imagePullPolicy: Always
         securityContext:
           readOnlyRootFilesystem: true
