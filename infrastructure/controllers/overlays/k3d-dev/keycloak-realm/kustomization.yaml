@@ -5,6 +5,7 @@ resources:
 - ../../../base/keycloak-realm
 - certificate.yaml
 - ingress-k3d.yaml
+- service.yaml
 
 patches:
 - path: deployment-patch.yaml

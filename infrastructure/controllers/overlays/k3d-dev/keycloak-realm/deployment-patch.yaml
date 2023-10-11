@@ -25,3 +25,14 @@ spec:
   hostname:
     strict: false
     strictBackchannel: false
+
+  # unsupported:
+  #   podTemplate:
+  #     spec:
+  #       containers:
+  #       - name: keycloak
+  #         ports:
+  #         - containerPort: 8081
+  #           name: 8080tcp
+  #           protocol: TCP
+
