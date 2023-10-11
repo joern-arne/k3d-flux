@@ -25,11 +25,11 @@ cluster-bootstrap: vault-apply
 		--context=${KUBECONTEXT} \
 		--personal)
 
-	@echo ""
-	@echo "Bootstapping finished :)"
-	@echo ""
-	@echo "To get keycloak credentials run: [make get-keycloak-credentials]"
-	@echo ""
+#	@echo ""
+#	@echo "Bootstapping finished :)"
+#	@echo ""
+#	@echo "To get keycloak credentials run: [make get-keycloak-credentials]"
+#	@echo ""
 
 .PHONY: cluster-up
 cluster-up: cluster-create cluster-bootstrap
