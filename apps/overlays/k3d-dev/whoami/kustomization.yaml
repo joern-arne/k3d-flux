@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: whoami
 resources:
 - namespace.yaml
-- ingress-local.yaml
+# - ingress-local.yaml
 - ingress-k3d.yaml
 - ../../../base/whoami
 # replicas:

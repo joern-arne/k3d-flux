@@ -1,6 +1,7 @@
 # TODOs
 
 https://github.com/keycloak/keycloak/issues/10464
+https://qdnqn.com/how-to-configure-traefik-on-k3s/
 
 # Current TODO
 * configure keycloak-realm-operator on k3d-example
