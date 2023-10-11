@@ -17,5 +17,5 @@ metadata:
   name: credential-external-keycloak
 type: Opaque
 stringData:
-  ADMIN_USERNAME: admin
-  ADMIN_PASSWORD: 19b06b50650841e8b77eed178d370b8a
+  ADMIN_USERNAME: admin@keycloak
+  ADMIN_PASSWORD: KMK8ysgR6829kZ._JwohFaAE
