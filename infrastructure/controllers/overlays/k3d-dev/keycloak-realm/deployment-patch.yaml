@@ -13,7 +13,7 @@ spec:
     value: edge
 
   - name: http-relative-path
-    value: /auth
+    value: auth
 
   # http:
   #   tlsSecret: keycloak.k3d-example.lessingstrasse.org
