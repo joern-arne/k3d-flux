@@ -3,7 +3,6 @@ kind: Kustomization
 namespace: kube-system
 resources:
 - ../../../base/traefik
-- ingress-local.yaml
 - ingress-k3d.yaml
 - basic-auth-users-secret.yaml
 - basic-auth-middleware.yaml
