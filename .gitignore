@@ -1,7 +1,5 @@
 .vscode
-registry-dev
-registry-example
-registry-prod
+registry/
 
 k3s-ingress/k3d-dev/kustomization.yaml
 k3s-ingress/k3d-example/kustomization.yaml
