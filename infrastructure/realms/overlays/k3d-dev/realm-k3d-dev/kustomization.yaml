@@ -2,4 +2,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: keycloak-realm-operator
 resources:
-- realm-k3d-dev.yaml
+- realm-k3d-dev_export.yaml
