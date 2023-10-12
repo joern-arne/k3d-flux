@@ -5,7 +5,7 @@ endif
 GITHUB_OWNER		:= $(shell op item get "GitHub" --fields "GitHub Username")
 GITHUB_TOKEN		:= $(shell op item get "GitHub" --fields token)
 REPO				:= k3d-flux
-CLUSTER_PATH		:= clusters/$(CLUSTER)
+CLUSTER_PATH		:= provisioning/clusters/$(CLUSTER)
 KUBECONFIG			:= $(HOME)/.kube/config
 KUBECONTEXT			:= $(CLUSTER)
 
