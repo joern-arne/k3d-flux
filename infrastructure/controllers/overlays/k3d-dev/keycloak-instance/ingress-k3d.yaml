@@ -4,6 +4,7 @@ metadata:
   name: keycloak-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+
 spec:
   ingressClassName: traefik
   rules:
@@ -15,7 +16,6 @@ spec:
             name: keycloak-service
             port:
               number: 8080
-        # path: /auth
         pathType: ImplementationSpecific
 
   tls:

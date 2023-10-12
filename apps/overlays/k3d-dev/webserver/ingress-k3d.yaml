@@ -4,6 +4,8 @@ metadata:
   name: webserver-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    traefik.ingress.kubernetes.io/router.middlewares: keycloak-realm-operator-traefik-forward-auth@kubernetescrd
+
 spec:
   rules:
   - host: webserver.k3d-dev.lessingstrasse.org
@@ -16,6 +18,7 @@ spec:
             name: webserver-svc
             port:
               number: 80
+
   tls:
   - hosts:
     - webserver.k3d-dev.lessingstrasse.org
