@@ -3,8 +3,7 @@
 https://github.com/keycloak/keycloak/issues/10464
 https://qdnqn.com/how-to-configure-traefik-on-k3s/
 
-https://www.keycloak.org/migration/migrating-to-quarkus --> Migrate to new AIO realm import
-
+https://github.com/thomseddon/traefik-forward-auth/issues/11
 
 # Current TODO
 * configure keycloak-realm-operator on k3d-example
