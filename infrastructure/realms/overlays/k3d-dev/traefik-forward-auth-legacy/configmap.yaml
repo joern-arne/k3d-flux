@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-forward-auth
+data:
+  INSECURE_COOKIE: 'true'
+  COOKIE_DOMAIN: k3d-dev.lessingstrasse.org
+  DOMAINS: k3d-dev.lessingstrasse.org
+  AUTH_HOST: auth.k3d-dev.lessingstrasse.org
+  URL_PATH: /_oauth
+  DEFAULT_PROVIDER: oidc
+  # PROVIDER_URI: https://keycloak.k3d-dev.lessingstrasse.org/auth/realms/k3d-dev
+  PROVIDERS_OIDC_ISSUER_URL: https://keycloak.k3d-dev.lessingstrasse.org/realms/k3d-dev
+  PROVIDERS_OIDC_CLIENT_ID: traefik-forward-auth
+  LOG_LEVEL: debug
