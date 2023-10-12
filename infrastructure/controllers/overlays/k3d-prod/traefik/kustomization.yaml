@@ -3,5 +3,4 @@ kind: Kustomization
 namespace: kube-system
 resources:
 - ../../../base/traefik
-- ingress-local.yaml
 - ingress-k3d.yaml
