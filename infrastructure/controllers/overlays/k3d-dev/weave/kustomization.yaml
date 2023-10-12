@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: weave
 resources:
 - namespace.yaml
+- oidc-auth.yaml
 # - cluster-user-auth.yaml
 - ../../../base/weave
 patches:
