@@ -4,4 +4,4 @@ namespace: keycloak-realm-operator
 resources:
 - namespace.yaml
 - ../../../base/keycloak-operator
-- ../../../base/keycloak-realm-operator
+# - ../../../base/keycloak-realm-operator
