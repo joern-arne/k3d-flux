@@ -44,7 +44,7 @@ registries:
     proxy:
       remoteURL: https://registry-1.docker.io
     volumes:
-    - /Users/joern/git/github.com/joern-arne/k3d-flux/registry/k3d-prod:/var/lib/registry
+    - /Users/joern/git/github.com/joern-arne/k3d-flux/registries/k3d-prod:/var/lib/registry
     # - /tmp/k3d-dev-registry:/var/lib/registry
   config: |
     mirrors:
