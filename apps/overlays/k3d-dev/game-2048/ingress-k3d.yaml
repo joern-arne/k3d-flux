@@ -4,6 +4,8 @@ metadata:
   name: game-2048-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
+    traefik.ingress.kubernetes.io/router.middlewares: keycloak-realm-operator-traefik-forward-auth@kubernetescrd
+
 spec:
   ingressClassName: traefik
   rules:
@@ -17,6 +19,7 @@ spec:
             name: game-2048
             port:
               number: 80
+
   tls:
   - hosts:
     - game-2048.k3d-dev.lessingstrasse.org
