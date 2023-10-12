@@ -659,7 +659,7 @@ spec:
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
-      secret: '**********'
+      secret: VKpUF1VJtcPGSVpAMbwQ0vdGJoA4TPhO
       redirectUris:
       - https://auth.k3d-dev.lessingstrasse.org/_oauth
       webOrigins:
