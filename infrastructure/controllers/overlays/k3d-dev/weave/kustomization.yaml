@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: weave
 resources:
 - namespace.yaml
-- cluster-user-auth.yaml
+# - cluster-user-auth.yaml
 - ../../../base/weave
 patches:
 - path: helm-release-values.yaml
