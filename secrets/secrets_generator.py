@@ -91,10 +91,12 @@ def generate(value):
 
 def op_create(vault, secret):
     print(f'create {secret.get("title")} in {vault}')
+
     s = subprocess.Popen(
-        'op item create --category=login --vault={vault} --title={title} {tags} {kv_pairs}'.format(
+        'op item create --category=login --vault={vault} --title={title} {url} {tags} {kv_pairs}'.format(
             vault=vault,
             title=secret.get('title'),
+            url=f"--url '{secret.get('url')}'" if secret.get('url') else '',
             kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
             tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
         ).split(),
