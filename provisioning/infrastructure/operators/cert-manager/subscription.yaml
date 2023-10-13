@@ -7,3 +7,4 @@ spec:
   name: cert-manager
   source: operatorhubio-catalog
   sourceNamespace: olm
+  installPlanApproval: Automatic
