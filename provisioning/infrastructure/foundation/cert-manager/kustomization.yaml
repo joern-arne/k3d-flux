@@ -1,6 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: cert-manager
+namespace: operators
 resources:
 - clusterissuer_letsencrypt-staging.yaml
 - secret_letsencrypt-staging-issuer-account-key.yaml
