@@ -25,11 +25,6 @@ cluster-bootstrap: vault-apply
 		--context=${KUBECONTEXT} \
 		--personal)
 
-#	@echo ""
-#	@echo "Bootstapping finished :)"
-#	@echo ""
-#	@echo "To get keycloak credentials run: [make get-keycloak-credentials]"
-#	@echo ""
 
 .PHONY: cluster-up
 cluster-up: cluster-create cluster-bootstrap
@@ -51,6 +46,7 @@ cluster-create: enable-ingress
 cluster-delete: disable-ingress
 	@k3d cluster delete --config $(CLUSTER).config.yaml
 
+
 ###
 ###
 ###
@@ -69,6 +65,7 @@ disable-ingress:
 ###
 ###
 
+
 .PHONY: vault
 vault:
 	@$(MAKE) -C secrets $(CLUSTER)
@@ -81,10 +78,14 @@ vault-apply:
 vault-delete:
 	@$(MAKE) -C secrets vault-delete
 
-
 .PHONY: vault-secrets
 vault-secrets:
 	@$(MAKE) -C secrets vault-secrets
+
+
+###
+###
+###
 
 
 .PHONY: images-build
@@ -92,6 +93,9 @@ images-build:
 	@$(MAKE) -C images build
 
 
+###
+###
+###
 
 
 .PHONY: get-keycloak-credentials
