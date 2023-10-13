@@ -1,17 +1,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infrastructure-services
+  name: is-olm-operators
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: infrastructure-foundation
+  - name: is-olm
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/services/overlays/k3d-dev
+  path: ./provisioning/infrastructure/olm-operators
   prune: true
   wait: true
