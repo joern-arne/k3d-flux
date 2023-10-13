@@ -8,10 +8,10 @@ spec:
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: infrastructure-operators
+  - name: infrastructure-olm
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/foundation
+  path: ./provisioning/infrastructure/operators
   prune: true
   wait: true

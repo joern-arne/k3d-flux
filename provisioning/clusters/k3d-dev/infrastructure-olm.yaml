@@ -1,17 +1,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: infrastructure-foundation
+  name: infrastructure-olm
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
-  dependsOn:
-  - name: infrastructure-operators
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/foundation
+  path: ./provisioning/infrastructure/olm
   prune: true
   wait: true
