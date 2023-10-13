@@ -4,7 +4,7 @@ metadata:
   name: webserver-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    traefik.ingress.kubernetes.io/router.middlewares: keycloak-realm-operator-traefik-forward-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: keycloak-operator-traefik-forward-auth@kubernetescrd
 
 spec:
   rules:
