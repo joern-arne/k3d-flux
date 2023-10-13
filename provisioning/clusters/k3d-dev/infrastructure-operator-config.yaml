@@ -12,6 +12,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/operator-instances
+  path: ./provisioning/infrastructure/operator-config
   prune: true
   wait: true
