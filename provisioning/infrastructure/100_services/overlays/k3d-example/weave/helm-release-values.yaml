@@ -18,24 +18,38 @@ spec:
       readOnlyRootFilesystem: true
       runAsNonRoot: true
       runAsUser: 1000
+    additionalArgs:
+    - --insecure
+    - --mtls
+    oidcSecret:
+      create: false
+      clientID: dHJhZWZpay1mb3J3YXJkLWF1dGg=
+      clientSecret: VktwVUYxVkp0Y1BHU1ZwQU1id1EwdmRHSm9BNFRQaE8=
+      issuerURL: https://keycloak.k3d-dev.lessingstrasse.org/realms/k3d-dev
+      redirectURL: aHR0cHM6Ly93ZWF2ZS5rM2QtZGV2Lmxlc3NpbmdzdHJhc3NlLm9yZw==
+
     adminUser:
-      username: joern
+      create: true
+      username: admin
+      #   # Change password by generating a new hash with:
+      #   # https://docs.gitops.weave.works/docs/configuration/securing-access-to-the-dashboard/#login-via-a-cluster-user-account
+      #   # PASSWORD=vieTu0xi && echo -n $PASSWORD | gitops get bcrypt-hash
+      #   # bcrypt hash for password "flux"
+      passwordHash: "$2a$10$P/tHQ1DNFXdvX0zRGA8LPeSOyb0JXq9rP3fZ4W8HGTpLV7qHDlWhe" # flux
+    #   # passwordHash: "$2a$10$d9SJ782ag0PZ6GJQ.qqw1e5cUZn8.r6fyZB3NQRfDGwlP5Zvc9Ob6" # vieTu0xi
     ingress:
       enabled: true
       className: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
+        traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
       hosts:
-      - host: weave.127.0.0.1.nip.io
-        paths:
-        - path: /
-          pathType: ImplementationSpecific
-      - host: weave.k3d-example.lessingstrasse.org
+      - host: weave.k3d-dev.lessingstrasse.org
         paths:
         - path: /
           pathType: ImplementationSpecific
       tls:
       - hosts:
-        - weave.k3d-example.lessingstrasse.org
-        secretName: weave.k3d-example.lessingstrasse.org
+        - weave.k3d-dev.lessingstrasse.org
+        secretName: weave.k3d-dev.lessingstrasse.org
 

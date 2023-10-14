@@ -1,0 +1,12 @@
+apiVersion: v1
+type: Opaque
+kind: Secret
+metadata:
+  name: oidc-auth
+  namespace: flux-system
+data:
+  clientID: dHJhZWZpay1mb3J3YXJkLWF1dGg=
+  clientSecret: VktwVUYxVkp0Y1BHU1ZwQU1id1EwdmRHSm9BNFRQaE8=
+  issuerURL: aHR0cHM6Ly9rZXljbG9hay5rM2QtZGV2Lmxlc3NpbmdzdHJhc3NlLm9yZy9yZWFsbXMvazNkLWRldg==
+  redirectURL: aHR0cHM6Ly93ZWF2ZS5rM2QtZGV2Lmxlc3NpbmdzdHJhc3NlLm9yZw==
+  tokenDuration: MWgwbTBz

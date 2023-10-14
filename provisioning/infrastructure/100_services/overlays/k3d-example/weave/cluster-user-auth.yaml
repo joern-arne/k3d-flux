@@ -3,4 +3,4 @@ kind: OnePasswordItem
 metadata:
   name: cluster-user-auth
 spec:
-  itemPath: "vaults/k3d-example/items/weave"
+  itemPath: "vaults/k3d-dev/items/weave"
