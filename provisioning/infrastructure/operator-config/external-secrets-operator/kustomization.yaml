@@ -4,3 +4,4 @@ namespace: eso
 resources:
 - namespace.yaml
 - operator-config.yaml
+- eso-cluster-secret-store.yaml
