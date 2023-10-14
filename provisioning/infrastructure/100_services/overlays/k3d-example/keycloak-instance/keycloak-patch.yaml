@@ -7,8 +7,12 @@ spec:
     enabled: false
 
   additionalOptions:
+
   - name: hostname-url
-    value: https://keycloak.k3d-example.lessingstrasse.org
+    value: https://keycloak.k3d-example.lessingstrasse.org/
+  # - name: http-relative-path
+  #   value: auth
+
   - name: proxy
     value: edge
 
