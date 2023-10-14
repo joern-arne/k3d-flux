@@ -2,6 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
 - op-connect-operator
-- cert-manager
-- external-secrets-operator
-- keycloak
+- op-eso
+- op-keycloak
+- op-cert-manager
