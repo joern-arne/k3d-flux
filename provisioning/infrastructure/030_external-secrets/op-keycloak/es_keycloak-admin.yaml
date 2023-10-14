@@ -5,7 +5,7 @@ metadata:
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
-    name: eso-op-connect
+    name: css-op-connect
   target:
     creationPolicy: Owner
   dataFrom:
