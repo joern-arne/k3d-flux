@@ -43,8 +43,8 @@ vault-create:
 .PHONY: vault-config
 vault-config:
 	@echo "Prepare vault secrets for 1Password-Operator deployment"
-	@cp resources/kustomization.yaml.template provisioning/$(CLUSTER)/kustomization.yaml
-	@cp resources/namespace.yaml.template provisioning/$(CLUSTER)/namespace.yaml
+	@cp templates/kustomization.yaml.template provisioning/$(CLUSTER)/kustomization.yaml
+	@cp templates/namespace.yaml.template provisioning/$(CLUSTER)/namespace.yaml
 	
 #	add newline at end of 1password-credentials.json
 	@sed -e '$$a\' provisioning/$(CLUSTER)/originals/1password-credentials.json > provisioning/$(CLUSTER)/1password-credentials.json
@@ -57,10 +57,10 @@ vault-config:
 
 #	clean up unnecessary extensions
 	@rm provisioning/$(CLUSTER)/1password-credentials.json.base64
-	@mv provisioning/$(CLUSTER)/1password-credentials.json.base64.nnl $(CLUSTER)/1password-credentials.json
+	@mv provisioning/$(CLUSTER)/1password-credentials.json.base64.nnl provisioning/$(CLUSTER)/1password-credentials.json
 
 #	remove newline at end of token
-	@tr -d '\n' < provisioning/$(CLUSTER)/originals/token > $(CLUSTER)/token
+	@tr -d '\n' < provisioning/$(CLUSTER)/originals/token > provisioning/$(CLUSTER)/token
 	@echo "----------"
 
 
