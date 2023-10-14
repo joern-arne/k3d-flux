@@ -91,7 +91,6 @@ def generate(value):
 
 def op_create(vault, secret):
     print(f'create {secret.get("title")} in {vault}')
-
     s = subprocess.Popen(
         'op item create --category=login --vault={vault} --title={title} {url} {tags} {kv_pairs}'.format(
             vault=vault,
