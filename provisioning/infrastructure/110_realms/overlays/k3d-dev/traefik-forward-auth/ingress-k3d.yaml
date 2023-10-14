@@ -4,7 +4,7 @@ metadata:
   name: traefik-forward-auth-k3d-ingress
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
-    traefik.ingress.kubernetes.io/router.middlewares: keycloak-operator-traefik-forward-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
     # ingress.kubernetes.io/auth-type: forward
     # ingress.kubernetes.io/auth-url: http://traefik-forward-auth-svc.keycloak-operator.svc.cluster.local/
     # ingress.kubernetes.io/auth-response-headers: X-Forwarded-User

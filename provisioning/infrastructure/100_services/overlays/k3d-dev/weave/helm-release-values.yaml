@@ -42,7 +42,7 @@ spec:
       className: traefik
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-staging
-        traefik.ingress.kubernetes.io/router.middlewares: keycloak-operator-traefik-forward-auth@kubernetescrd
+        traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
       hosts:
       - host: weave.k3d-dev.lessingstrasse.org
         paths:
