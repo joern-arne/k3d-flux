@@ -1,14 +1,14 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: is-services
+  name: is-100-services
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: is-external-secrets
+  - name: is-030-external-secrets
   sourceRef:
     kind: GitRepository
     name: flux-system
