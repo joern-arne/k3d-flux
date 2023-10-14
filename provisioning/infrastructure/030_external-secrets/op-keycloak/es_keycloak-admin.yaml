@@ -10,4 +10,4 @@ spec:
     creationPolicy: Owner
   dataFrom:
   - extract:
-      key: k3d-dev.lessingstrasse.org_SSO_admin
+      key: Keycloak-Admin
