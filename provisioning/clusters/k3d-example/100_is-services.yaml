@@ -12,6 +12,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/100_services/overlays/k3d-dev
+  path: ./provisioning/infrastructure/100_services/overlays/k3d-example
   prune: true
   wait: true
