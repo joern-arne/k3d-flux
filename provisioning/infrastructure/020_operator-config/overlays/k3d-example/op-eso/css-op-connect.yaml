@@ -1,0 +1,16 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ClusterSecretStore
+metadata:
+  name: css-op-connect
+spec:
+  provider:
+    onepassword:
+      connectHost: http://onepassword-connect.op-1p-connect.svc.cluster.local:8080
+      vaults:
+        k3d-example: 1 # look in this vault first
+      auth:
+        secretRef:
+          connectTokenSecretRef:
+            name: onepassword-token-kustomize
+            key: token
+            namespace: op-1p-connect
