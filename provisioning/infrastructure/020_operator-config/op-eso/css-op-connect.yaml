@@ -1,8 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ClusterSecretStore
 metadata:
-  name: eso-op-connect
-  namespace: eso
+  name: css-op-connect
 spec:
   provider:
     onepassword:

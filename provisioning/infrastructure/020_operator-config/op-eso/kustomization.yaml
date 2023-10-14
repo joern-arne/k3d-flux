@@ -3,4 +3,4 @@ kind: Kustomization
 namespace: op-eso
 resources:
 - operator-config.yaml
-- eso-cluster-secret-store.yaml
+- css-op-connect.yaml

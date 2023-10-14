@@ -3,5 +3,5 @@ kind: Kustomization
 namespace: op-cert-manager
 resources:
 - clusterissuer_letsencrypt-staging.yaml
-- secret_letsencrypt-staging-issuer-account-key.yaml
-- secret_cloudflare-api-token-secret.yaml
+- es_letsencrypt-staging-issuer-account-key.yaml
+- es_cloudflare-api-token-secret.yaml
