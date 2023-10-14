@@ -6,6 +6,7 @@ metadata:
 spec:
   keycloakCRName: keycloak
   realm:
+
     users:
     - username: joern.arne
       firstName: Jörn Arne

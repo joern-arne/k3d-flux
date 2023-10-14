@@ -1,17 +1,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: is-realms
+  name: is-olm
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
-  dependsOn:
-  - name: is-services
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/realms/overlays/k3d-dev
+  path: ./provisioning/infrastructure/000_olm
   prune: true
   wait: true
