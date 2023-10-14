@@ -1,7 +1,7 @@
 apiVersion: external-secrets.io/v1beta1
 kind: ExternalSecret
 metadata:
-  name: letsencrypt-staging-issuer-account-key
+  name: cloudflare-api-token-secret
 spec:
   secretStoreRef:
     kind: ClusterSecretStore
@@ -9,7 +9,8 @@ spec:
   target:
     creationPolicy: Owner
   data:
-  - secretKey: tls.key
+  - secretKey: api-token
     remoteRef:
-      key: cert-manager-test
-      property: tls_key
+      key: cloudflare-api
+      property: api-token
+
