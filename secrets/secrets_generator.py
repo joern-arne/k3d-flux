@@ -96,7 +96,7 @@ def op_create(vault, secret):
         'op item create --category=login --vault={vault} --title={title} {url} {tags} {kv_pairs}'.format(
             vault=vault,
             title=secret.get('title'),
-            url=f"--url '{secret.get('url')}'" if secret.get('url') else '',
+            url=f'--url {secret.get("url")}' if secret.get('url') else '',
             kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
             tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
         ).split(),
@@ -168,9 +168,10 @@ def has_up_to_date_tags(secret, existing_secrets):
 def op_update(vault, secret):
     print(f'update {secret.get("title")} in {vault}')
     s = subprocess.Popen(
-        'op item edit --vault={vault} {title} {tags} {kv_pairs}'.format(
+        'op item edit --vault={vault} {title} {url} {tags} {kv_pairs}'.format(
             vault=vault,
             title=secret.get('title'),
+            url=f'--url {secret.get("url")}' if secret.get('url') else '',
             kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
             tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
         ).split(),
