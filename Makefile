@@ -74,7 +74,7 @@ vault:
 
 .PHONY: vault-apply
 vault-apply:
-	@kubectl --kubeconfig $(KUBECONFIG) --context $(KUBECONTEXT) apply -k secrets/$(CLUSTER)
+	@kubectl --kubeconfig $(KUBECONFIG) --context $(KUBECONTEXT) apply -k secrets/provisioning/$(CLUSTER)
 
 .PHONY: vault-delete
 vault-delete:
