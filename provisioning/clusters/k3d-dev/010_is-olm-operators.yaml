@@ -1,17 +1,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: is-operator-config
+  name: is-olm-operators
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: is-olm-operators
+  - name: is-olm
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/operator-config
+  path: ./provisioning/infrastructure/010_olm-operators
   prune: true
   wait: true
