@@ -6,7 +6,7 @@ GITHUB_OWNER		:= $(shell op item get "GitHub" --fields "GitHub Username")
 GITHUB_TOKEN		:= $(shell op item get "GitHub" --fields token)
 GITHUB_REPO			:= k3d-flux
 GITHUB_BRANCH		:= feature/olm
-CLUSTER_PATH		:= provisioning/clusters/$(CLUSTER)
+CLUSTER_PATH		:= provisioning/000_clusters/$(CLUSTER)
 KUBECONFIG			:= $(HOME)/.kube/config
 KUBECONTEXT			:= $(CLUSTER)
 
