@@ -5,6 +5,3 @@ resources:
 - namespace.yaml
 - ingress-k3d.yaml
 - ../../../base/whoami
-# replicas:
-# - name: whoami-deployment
-#   count: 3
