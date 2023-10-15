@@ -1,0 +1,8 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: Keycloak
+metadata:
+  name: keycloak
+spec:
+  additionalOptions:
+  - name: hostname-url
+    value: https://keycloak.k3d-dev.lessingstrasse.org/

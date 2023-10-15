@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: whoami.k3d-example.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - whoami.k3d-example.lessingstrasse.org
+    secretName: whoami.k3d-example.lessingstrasse.org

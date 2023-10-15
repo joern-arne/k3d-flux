@@ -1,0 +1,13 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: keycloak-initial-admin
+spec:
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: css-op-connect
+  target:
+    creationPolicy: Owner
+  dataFrom:
+  - extract:
+      key: Keycloak-Admin

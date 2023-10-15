@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: auth.k3d-example.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - auth.k3d-example.lessingstrasse.org
+    secretName: auth.k3d-example.lessingstrasse.org
