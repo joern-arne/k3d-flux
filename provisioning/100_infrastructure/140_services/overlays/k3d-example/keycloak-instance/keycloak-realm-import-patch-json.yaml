@@ -1,0 +1,26 @@
+# realm:
+- op: replace
+  path: /spec/realm/realm
+  value: k3d-example
+
+
+# clientId: account
+- op: replace
+  path: /spec/realm/clients/0/baseUrl
+  value: /realms/k3d-example/account/
+
+- op: replace
+  path: /spec/realm/clients/0/redirectUris
+  value:
+  - /realms/k3d-example/account/*
+
+
+# clientId: account-console
+- op: replace
+  path: /spec/realm/clients/1/baseUrl
+  value: /realms/k3d-example/account/
+
+- op: replace
+  path: /spec/realm/clients/1/redirectUris
+  value:
+  - /realms/k3d-example/account/*

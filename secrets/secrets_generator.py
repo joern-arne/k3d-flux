@@ -36,7 +36,9 @@ def op_exists(vault, secret):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
-    streamdata = s.communicate()[0]
+    s.wait()
+    # print(s.stdout.read().decode())
+    print(s.stderr.read().decode())
 
     if s.returncode == 0:
         print(f'exists in {vault}')
@@ -91,19 +93,33 @@ def generate(value):
 
 def op_create(vault, secret):
     print(f'create {secret.get("title")} in {vault}')
+    if secret.get('file'):
+        command='op document create {file} --vault={vault} --title={title} {tags}'.format(
+                vault=vault,
+                title=secret.get('title'),
+                file=secret.get('file'),
+                tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
+            ).split()
+    else:
+        command='op item create --category=login --vault={vault} --title={title} {url} {tags} {kv_pairs}'.format(
+                vault=vault,
+                title=secret.get('title'),
+                url=f'--url {secret.get("url")}' if secret.get('url') else '',
+                kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
+                tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
+            ).split()
+
+    # print(' '.join(command))
 
     s = subprocess.Popen(
-        'op item create --category=login --vault={vault} --title={title} {url} {tags} {kv_pairs}'.format(
-            vault=vault,
-            title=secret.get('title'),
-            url=f"--url '{secret.get('url')}'" if secret.get('url') else '',
-            kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
-            tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
-        ).split(),
+        command,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
-    streamdata = s.communicate()[0]
+    s.wait()
+    # print(s.stdout.read().decode())
+    print(s.stderr.read().decode())
+
 
 
 
@@ -131,7 +147,9 @@ def op_delete(vault, secret):
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
-    streamdata = s.communicate()[0]
+    s.wait()
+    # print(s.stdout.read().decode())
+    print(s.stderr.read().decode())
 
 
 
@@ -167,17 +185,31 @@ def has_up_to_date_tags(secret, existing_secrets):
 
 def op_update(vault, secret):
     print(f'update {secret.get("title")} in {vault}')
+
+    if secret.get('file'):
+        command='op document edit {title} {file} --vault={vault} {tags}'.format(
+                vault=vault,
+                title=secret.get('title'),
+                file=secret.get('file'),
+                tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
+            ).split()
+    else:
+        command='op item edit --vault={vault} {title} {url} {tags} {kv_pairs}'.format(
+                vault=vault,
+                title=secret.get('title'),
+                url=f'--url {secret.get("url")}' if secret.get('url') else '',
+                kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
+                tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
+            ).split()
+
     s = subprocess.Popen(
-        'op item edit --vault={vault} {title} {tags} {kv_pairs}'.format(
-            vault=vault,
-            title=secret.get('title'),
-            kv_pairs='\n\t'.join(list(map(lambda v: f'{v[0]}={generate(v[1])}', secret.get('data').items()))),
-            tags='--tags ' + ','.join(secret.get('tags')) if secret.get('tags') else ''
-        ).split(),
+        command,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE
     )
-    streamdata = s.communicate()[0]
+    s.wait()
+    # print(s.stdout.read().decode())
+    print(s.stderr.read().decode())
 
 
 

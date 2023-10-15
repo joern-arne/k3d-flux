@@ -37,7 +37,7 @@ metadata:
   namespace: kube-system
 subsets:
 - addresses:
-  - ip: "10.10.10.4"
+  - ip: << ip address of target cluster >>
   ports:
   - port: 8443
     name: k3d-dev-https

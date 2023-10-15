@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: whoami-local-ip
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: whoami.10.10.10.2.nip.io
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: whoami-svc
+            port:
+              number: 80

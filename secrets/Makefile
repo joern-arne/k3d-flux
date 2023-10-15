@@ -24,7 +24,7 @@ vault-delete:
 	@echo "----------"
 	-op connect server delete $(CLUSTER)
 	@echo "----------"
-	@rm -rf $(CLUSTER)
+	@rm -rf provisioning/$(CLUSTER)
 
 
 
@@ -33,9 +33,9 @@ vault-create:
 	@op vault create $(CLUSTER) --description "Vault for Kubernetes Cluster $(CLUSTER)"
 	@echo "----------"
 	@op connect server create $(CLUSTER) --vaults $(CLUSTER)
-	@mkdir -p $(CLUSTER)/originals
-	@mv 1password-credentials.json $(CLUSTER)/originals
-	@op connect token create $(CLUSTER)-operator --server $(CLUSTER) --vault $(CLUSTER),r > $(CLUSTER)/originals/token
+	@mkdir -p provisioning/$(CLUSTER)/originals
+	@mv 1password-credentials.json provisioning/$(CLUSTER)/originals
+	@op connect token create $(CLUSTER)-operator --server $(CLUSTER) --vault $(CLUSTER),r > provisioning/$(CLUSTER)/originals/token
 	@echo "----------"
 
 
@@ -43,24 +43,24 @@ vault-create:
 .PHONY: vault-config
 vault-config:
 	@echo "Prepare vault secrets for 1Password-Operator deployment"
-	@cp resources/kustomization.yaml.template $(CLUSTER)/kustomization.yaml
-	@cp resources/namespace.yaml.template $(CLUSTER)/namespace.yaml
+	@cp templates/kustomization.yaml.template provisioning/$(CLUSTER)/kustomization.yaml
+	@cp templates/namespace.yaml.template provisioning/$(CLUSTER)/namespace.yaml
 	
 #	add newline at end of 1password-credentials.json
-	@sed -e '$$a\' $(CLUSTER)/originals/1password-credentials.json > $(CLUSTER)/1password-credentials.json
+	@sed -e '$$a\' provisioning/$(CLUSTER)/originals/1password-credentials.json > provisioning/$(CLUSTER)/1password-credentials.json
 
 #	encode 1password-credentials.json as base64
-	@base64 -i $(CLUSTER)/1password-credentials.json > $(CLUSTER)/1password-credentials.json.base64
+	@base64 -i provisioning/$(CLUSTER)/1password-credentials.json > provisioning/$(CLUSTER)/1password-credentials.json.base64
 	
 #	remove newline at end of 1password-credentials.json.base64
-	@tr -d '\n' < $(CLUSTER)/1password-credentials.json.base64 > $(CLUSTER)/1password-credentials.json.base64.nnl
+	@tr -d '\n' < provisioning/$(CLUSTER)/1password-credentials.json.base64 > provisioning/$(CLUSTER)/1password-credentials.json.base64.nnl
 
 #	clean up unnecessary extensions
-	@rm $(CLUSTER)/1password-credentials.json.base64
-	@mv $(CLUSTER)/1password-credentials.json.base64.nnl $(CLUSTER)/1password-credentials.json
+	@rm provisioning/$(CLUSTER)/1password-credentials.json.base64
+	@mv provisioning/$(CLUSTER)/1password-credentials.json.base64.nnl provisioning/$(CLUSTER)/1password-credentials.json
 
 #	remove newline at end of token
-	@tr -d '\n' < $(CLUSTER)/originals/token > $(CLUSTER)/token
+	@tr -d '\n' < provisioning/$(CLUSTER)/originals/token > provisioning/$(CLUSTER)/token
 	@echo "----------"
 
 

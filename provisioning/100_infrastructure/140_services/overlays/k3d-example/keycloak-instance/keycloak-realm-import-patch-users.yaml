@@ -1,0 +1,31 @@
+apiVersion: k8s.keycloak.org/v2alpha1
+kind: KeycloakRealmImport
+metadata:
+  name: keycloak-realm-import
+spec:
+  keycloakCRName: keycloak
+  realm:
+
+    users:
+    - username: joern.arne
+      firstName: Jörn Arne
+      lastName: Göttig
+      email: joern.arne@gmail.com
+      enabled: True
+      emailVerified: True
+      credentials:
+      - type: password
+        value: vieTu0xi
+      realmRoles:
+      - offline_access
+      - uma_authorization
+      clientRoles:
+        account:
+        - manage-account
+        - view-profile
+        realm-management:
+        - manage-users
+        - view-users
+        - query-users
+        - create-client
+

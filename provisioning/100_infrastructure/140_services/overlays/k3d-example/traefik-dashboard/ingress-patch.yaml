@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: traefik.k3d-example.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - traefik.k3d-example.lessingstrasse.org
+    secretName: traefik.k3d-example.lessingstrasse.org
