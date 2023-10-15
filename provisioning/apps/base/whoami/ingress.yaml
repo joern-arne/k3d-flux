@@ -5,14 +5,10 @@ metadata:
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
-    # ingress.kubernetes.io/auth-type: forward
-    # ingress.kubernetes.io/auth-url: http://traefik-forward-auth-svc.keycloak-operator.svc.cluster.local/
-    # ingress.kubernetes.io/auth-response-headers: X-Forwarded-User
-
 spec:
   ingressClassName: traefik
   rules:
-  - host: whoami.k3d-dev.lessingstrasse.org
+  - host: << example.com >>
     http:
       paths:
       - path: /
@@ -22,8 +18,7 @@ spec:
             name: whoami-svc
             port:
               number: 80
-
   tls:
   - hosts:
-    - whoami.k3d-dev.lessingstrasse.org
-    secretName: whoami.k3d-dev.lessingstrasse.org
+    - << example.com >>
+    secretName: << example.com >>

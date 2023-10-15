@@ -3,5 +3,10 @@ kind: Kustomization
 namespace: whoami
 resources:
 - namespace.yaml
-- ingress-k3d.yaml
 - ../../../base/whoami
+
+patches:
+- target:
+    kind: Ingress
+    name: whoami-k3d-ingress
+  path: ingress.yaml
