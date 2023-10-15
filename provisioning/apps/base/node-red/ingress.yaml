@@ -1,25 +1,26 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: webserver-k3d-ingress
+  name: node-red
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
 
 spec:
+  ingressClassName: traefik
   rules:
-  - host: webserver.k3d-dev.lessingstrasse.org
+  - host: << example.com >>
     http:
       paths:
       - path: /
-        pathType: ImplementationSpecific
+        pathType: Prefix
         backend:
           service:
-            name: webserver-svc
+            name: node-red-svc
             port:
-              number: 80
+              number: 1880
 
   tls:
   - hosts:
-    - webserver.k3d-dev.lessingstrasse.org
-    secretName: webserver.k3d-dev.lessingstrasse.org
+    - << example.com >>
+    secretName: << example.com >>

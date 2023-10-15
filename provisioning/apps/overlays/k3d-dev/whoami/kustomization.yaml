@@ -5,8 +5,10 @@ resources:
 - namespace.yaml
 - ../../../base/whoami
 
+# - ingress-ngrok.yaml
+
 patches:
 - target:
     kind: Ingress
-    name: whoami-k3d-ingress
+    name: whoami
   path: ingress.yaml

@@ -1,26 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: game-2048-k3d-ingress
+  name: webserver
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-staging
     traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
 
 spec:
-  ingressClassName: traefik
   rules:
-  - host: game-2048.k3d-dev.lessingstrasse.org
+  - host: << example.com >>
     http:
       paths:
       - path: /
-        pathType: Prefix
+        pathType: ImplementationSpecific
         backend:
           service:
-            name: game-2048
+            name: webserver-svc
             port:
               number: 80
 
   tls:
   - hosts:
-    - game-2048.k3d-dev.lessingstrasse.org
-    secretName: game-2048.k3d-dev.lessingstrasse.org
+    - << example.com >>
+    secretName: << example.com >>

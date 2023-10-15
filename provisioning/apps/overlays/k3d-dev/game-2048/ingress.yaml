@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: game-2048.k3d-dev.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - game-2048.k3d-dev.lessingstrasse.org
+    secretName: game-2048.k3d-dev.lessingstrasse.org

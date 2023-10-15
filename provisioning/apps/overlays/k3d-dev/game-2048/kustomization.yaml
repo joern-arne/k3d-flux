@@ -3,6 +3,10 @@ kind: Kustomization
 namespace: game-2048
 resources:
 - namespace.yaml
-- ingress-k3d.yaml
-# - ingress-ngrok.yaml
 - ../../../base/game-2048
+
+patches:
+- target:
+    kind: Ingress
+    name: game-2048
+  path: ingress.yaml
