@@ -4,6 +4,7 @@ namespace: whoami
 resources:
 - namespace.yaml
 - ../../../base/whoami
+- ingress-local.yaml
 
 patches:
 - target:
