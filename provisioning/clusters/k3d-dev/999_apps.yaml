@@ -1,17 +1,15 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: is-410-realms
+  name: apps
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 30m
   retryInterval: 1m
   timeout: 5m
-  dependsOn:
-  - name: is-400-services
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/410_realms/overlays/k3d-dev
+  path: ./provisioning/apps/overlays/k3d-dev
   prune: true
   wait: true

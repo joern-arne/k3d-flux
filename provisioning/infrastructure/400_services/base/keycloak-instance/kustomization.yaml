@@ -6,3 +6,4 @@ resources:
 - postgres-stateful-set.yaml
 - certificate.yaml
 - ingress.yaml
+- keycloak-realm-import.yaml

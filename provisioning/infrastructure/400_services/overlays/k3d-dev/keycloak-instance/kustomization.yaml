@@ -18,3 +18,18 @@ patches:
   target:
     kind: Ingress
     name: keycloak
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-users.yaml
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-clients.yaml
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-json.yaml
