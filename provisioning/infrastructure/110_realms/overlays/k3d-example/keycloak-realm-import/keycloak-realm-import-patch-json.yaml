@@ -24,14 +24,3 @@
   path: /spec/realm/clients/1/redirectUris
   value:
   - /realms/k3d-example/account/*
-
-
-# clientId: security-admin-console
-- op: replace
-  path: /spec/realm/clients/5/baseUrl
-  value: /admin/k3d-example/console/
-
-- op: replace
-  path: /spec/realm/clients/5/redirectUris
-  value:
-  - /admin/k3d-example/console/*

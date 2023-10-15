@@ -576,13 +576,13 @@ spec:
       clientId: security-admin-console
       name: ${client_security-admin-console}
       rootUrl: ${authAdminUrl}
-      baseUrl: /admin/k3d-STAGE/console/
+      baseUrl: /admin/master/console/
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
       redirectUris:
-      - /admin/k3d-STAGE/console/*
+      - /admin/master/console/*
       webOrigins:
       - +
       notBefore: 0
