@@ -3,4 +3,9 @@ kind: Kustomization
 namespace: op-eso
 resources:
 - ../../../base/op-eso
-- css-op-connect.yaml
+
+patches:
+- target:
+    kind: ClusterSecretStore
+    name: css-op-connect
+  path: css-op-connect-patch.yaml
