@@ -4,3 +4,4 @@ resources:
 - traefik-dashboard
 - weave
 - keycloak-instance
+- traefik-forward-auth
