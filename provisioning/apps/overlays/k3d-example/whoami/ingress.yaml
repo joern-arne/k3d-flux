@@ -8,17 +8,3 @@
   - hosts:
     - whoami.k3d-example.lessingstrasse.org
     secretName: whoami.k3d-example.lessingstrasse.org
-
-# - op: add
-#   path: /spec/rules/1
-#   value:
-#     host: whoami.10.10.10.2.nip.io
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: whoami-svc
-#             port:
-#               number: 80

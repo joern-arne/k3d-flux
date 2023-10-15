@@ -1,9 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: whoami-local
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: whoami-local-ip
 spec:
   ingressClassName: traefik
   rules:
