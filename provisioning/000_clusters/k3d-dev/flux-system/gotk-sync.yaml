@@ -8,7 +8,7 @@ metadata:
 spec:
   interval: 1m0s
   ref:
-    branch: feature/olm
+    branch: main
   secretRef:
     name: flux-system
   url: ssh://git@github.com/joern-arne/k3d-flux
