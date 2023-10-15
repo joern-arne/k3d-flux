@@ -44,12 +44,12 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-staging
         traefik.ingress.kubernetes.io/router.middlewares: op-keycloak-traefik-forward-auth@kubernetescrd
       hosts:
-      - host: weave.k3d-dev.lessingstrasse.org
+      - host: weave.k3d-example.lessingstrasse.org
         paths:
         - path: /
           pathType: ImplementationSpecific
       tls:
       - hosts:
-        - weave.k3d-dev.lessingstrasse.org
-        secretName: weave.k3d-dev.lessingstrasse.org
+        - weave.k3d-example.lessingstrasse.org
+        secretName: weave.k3d-example.lessingstrasse.org
 
