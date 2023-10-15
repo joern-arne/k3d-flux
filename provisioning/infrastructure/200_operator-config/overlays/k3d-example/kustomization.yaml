@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
 - op-cert-manager
 - op-eso
+- op-keycloak

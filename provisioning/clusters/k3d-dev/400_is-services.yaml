@@ -8,7 +8,7 @@ spec:
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: is-300-external-secrets
+  - name: is-200-is-operator-config
   sourceRef:
     kind: GitRepository
     name: flux-system

@@ -2,6 +2,5 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: op-eso
 resources:
-- namespace.yaml
-- operator-group.yaml
+- ../../../base/op-eso
 - subscription.yaml
