@@ -1,17 +1,17 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: is-100-olm-operators
+  name: 130-operator-config
   namespace: flux-system
 spec:
   interval: 1h
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: is-000-olm
+  - name: 120-olm-operators
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./provisioning/infrastructure/100_olm-operators/overlays/k3d-dev
+  path: ./provisioning/100_infrastructure/130_operator-config/overlays/k3d-example
   prune: true
   wait: true
