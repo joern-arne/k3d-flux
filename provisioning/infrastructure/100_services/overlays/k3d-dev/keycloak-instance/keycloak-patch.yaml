@@ -3,26 +3,6 @@ kind: Keycloak
 metadata:
   name: keycloak
 spec:
-  ingress:
-    enabled: false
-
   additionalOptions:
-
   - name: hostname-url
     value: https://keycloak.k3d-dev.lessingstrasse.org/
-  # - name: http-relative-path
-  #   value: auth
-
-  - name: proxy
-    value: edge
-
-  # http:
-  #   tlsSecret: keycloak.k3d-example.lessingstrasse.org
-  # hostname:
-  #   hostname: keycloak.k3d-example.lessingstrasse.org
-
-  http:
-    httpEnabled: true
-  hostname:
-    strict: false
-    strictBackchannel: false

@@ -4,3 +4,5 @@ resources:
 - keycloak.yaml
 - postgres-service.yaml
 - postgres-stateful-set.yaml
+- certificate.yaml
+- ingress.yaml

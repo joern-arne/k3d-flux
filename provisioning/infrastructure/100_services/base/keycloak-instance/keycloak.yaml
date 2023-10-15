@@ -5,6 +5,22 @@ metadata:
   name: keycloak
 spec:
   instances: 1
+
+  ingress:
+    enabled: false
+
+  additionalOptions:
+  - name: hostname-url
+    value: << example.com >>
+  - name: proxy
+    value: edge
+
+  http:
+    httpEnabled: true
+  hostname:
+    strict: false
+    strictBackchannel: false
+
   db:
     vendor: postgres
     host: postgres-db
