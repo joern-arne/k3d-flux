@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: op-keycloak
+resources:
+- ../../../base/keycloak-realm-import
+
+patches:
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-realm.yaml
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-users.yaml
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-clients.yaml
+
+- target:
+    kind: KeycloakRealmImport
+    name: keycloak-realm-import
+  path: keycloak-realm-import-patch-json.yaml

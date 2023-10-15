@@ -2,36 +2,12 @@
 apiVersion: k8s.keycloak.org/v2alpha1
 kind: KeycloakRealmImport
 metadata:
-  name: realm-import-k3d-dev
+  name: keycloak-realm-import
 spec:
   keycloakCRName: keycloak
   realm:
-
-    users:
-    - username: joern.arne
-      firstName: Jörn Arne
-      lastName: Göttig
-      email: joern.arne@gmail.com
-      enabled: True
-      emailVerified: True
-      credentials:
-      - type: password
-        value: vieTu0xi
-      realmRoles:
-      - offline_access
-      - uma_authorization
-      clientRoles:
-        account:
-        - manage-account
-        - view-profile
-        realm-management:
-        - manage-users
-        - view-users
-        - query-users
-        - create-client
-
     id: 2d68e962-4884-49c4-9871-938db9139dbf
-    realm: k3d-dev
+    realm: << realm name >>
     displayName: ""
     displayNameHtml: ""
     notBefore: 0
@@ -79,7 +55,7 @@ spec:
     roles:
       realm:
       - id: 7f98f0b4-ca27-47e8-916e-49f7316ba315
-        name: default-roles-k3d-dev
+        name: default-roles-k3d
         description: ${role_default-roles}
         composite: true
         composites:
@@ -359,7 +335,7 @@ spec:
       subGroups: []
     defaultRole:
       id: 7f98f0b4-ca27-47e8-916e-49f7316ba315
-      name: default-roles-k3d-dev
+      name: default-roles-k3d
       description: ${role_default-roles}
       composite: true
       clientRole: false
@@ -414,13 +390,13 @@ spec:
       clientId: account
       name: ${client_account}
       rootUrl: ${authBaseUrl}
-      baseUrl: /realms/k3d-dev/account/
+      baseUrl: /realms/k3d-STAGE/account/
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
       redirectUris:
-      - /realms/k3d-dev/account/*
+      - /realms/k3d-STAGE/account/*
       webOrigins: []
       notBefore: 0
       bearerOnly: false
@@ -452,13 +428,13 @@ spec:
       clientId: account-console
       name: ${client_account-console}
       rootUrl: ${authBaseUrl}
-      baseUrl: /realms/k3d-dev/account/
+      baseUrl: /realms/k3d-STAGE/account/
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
       redirectUris:
-      - /realms/k3d-dev/account/*
+      - /realms/k3d-STAGE/account/*
       webOrigins: []
       notBefore: 0
       bearerOnly: false
@@ -600,13 +576,13 @@ spec:
       clientId: security-admin-console
       name: ${client_security-admin-console}
       rootUrl: ${authAdminUrl}
-      baseUrl: /admin/k3d-dev/console/
+      baseUrl: /admin/k3d-STAGE/console/
       surrogateAuthRequired: false
       enabled: true
       alwaysDisplayInConsole: false
       clientAuthenticatorType: client-secret
       redirectUris:
-      - /admin/k3d-dev/console/*
+      - /admin/k3d-STAGE/console/*
       webOrigins:
       - +
       notBefore: 0
@@ -643,53 +619,6 @@ spec:
       - acr
       - roles
       - profile
-      - email
-      optionalClientScopes:
-      - address
-      - phone
-      - offline_access
-      - microprofile-jwt
-    - id: 32ad4a9f-8d26-4c6e-a85e-10210cb36df7
-      clientId: traefik-forward-auth
-      name: traefik-forward-auth
-      description: ""
-      rootUrl: ""
-      adminUrl: ""
-      baseUrl: ""
-      surrogateAuthRequired: false
-      enabled: true
-      alwaysDisplayInConsole: false
-      clientAuthenticatorType: client-secret
-      secret: VKpUF1VJtcPGSVpAMbwQ0vdGJoA4TPhO
-      redirectUris:
-      - https://auth.k3d-dev.lessingstrasse.org/_oauth
-      webOrigins:
-      - /*
-      notBefore: 0
-      bearerOnly: false
-      consentRequired: false
-      standardFlowEnabled: true
-      implicitFlowEnabled: false
-      directAccessGrantsEnabled: true
-      serviceAccountsEnabled: false
-      publicClient: false
-      frontchannelLogout: true
-      protocol: openid-connect
-      attributes:
-        oidc.ciba.grant.enabled: "false"
-        oauth2.device.authorization.grant.enabled: "false"
-        client.secret.creation.time: "1697094906"
-        backchannel.logout.session.required: "true"
-        backchannel.logout.revoke.offline.tokens: "false"
-      authenticationFlowBindingOverrides: {}
-      fullScopeAllowed: true
-      nodeReRegistrationTimeout: -1
-      defaultClientScopes:
-      - web-origins
-      - acr
-      - roles
-      - profile
-      - groups
       - email
       optionalClientScopes:
       - address
