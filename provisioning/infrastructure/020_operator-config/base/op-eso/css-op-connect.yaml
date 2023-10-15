@@ -7,7 +7,7 @@ spec:
     onepassword:
       connectHost: http://onepassword-connect.op-1p-connect.svc.cluster.local:8080
       vaults:
-        k3d-dev: 1 # look in this vault first
+        << your personal vault >>: << priority order >>
       auth:
         secretRef:
           connectTokenSecretRef:
