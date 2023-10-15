@@ -4,3 +4,25 @@ resources:
 - deployment.yaml
 - middleware.yaml
 - service.yaml
+- ingress.yaml
+
+configMapGenerator:
+- name: traefik-forward-auth
+  literals:
+  - INSECURE_COOKIE='false'
+  - URL_PATH=/_oauth
+  - DEFAULT_PROVIDER=oidc
+  - CLIENT_ID=traefik-forward-auth
+  - LOG_LEVEL=info
+
+  - COOKIE_DOMAIN=<< example.com >>
+  - DOMAINS=<< example.com >>
+  - AUTH_HOST=auth.<< example.com >>
+  - PROVIDER_URI=https://<< example.com >>/realms/<< your_realm >>
+
+secretGenerator:
+- name: traefik-forward-auth
+  literals:
+  - CLIENT_SECRET=VKpUF1VJtcPGSVpAMbwQ0vdGJoA4TPhO
+  - SECRET=799dcef3837a32e7f1ea5e8246542a15
+  - ENCRYPTION_KEY=L9VVndQTi8cDe4BjIbfXHHOoyQjXSUSQ

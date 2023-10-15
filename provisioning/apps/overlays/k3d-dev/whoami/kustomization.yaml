@@ -11,4 +11,4 @@ patches:
 - target:
     kind: Ingress
     name: whoami
-  path: ingress.yaml
+  path: ingress-patch.yaml

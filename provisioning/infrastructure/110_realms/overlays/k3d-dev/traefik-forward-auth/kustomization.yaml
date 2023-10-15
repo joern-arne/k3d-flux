@@ -2,7 +2,20 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: op-keycloak
 resources:
-- ingress-k3d.yaml
-- configmap.yaml
-- secrets.yaml
 - ../../../base/traefik-forward-auth
+
+patches:
+- target:
+    kind: Ingress
+    name: traefik-forward-auth
+  path: ingress-patch.yaml
+
+configMapGenerator:
+- name: traefik-forward-auth
+  behavior: merge
+  literals:
+  - COOKIE_DOMAIN=k3d-dev.lessingstrasse.org
+  - DOMAINS=k3d-dev.lessingstrasse.org
+  - AUTH_HOST=auth.k3d-dev.lessingstrasse.org
+  - PROVIDER_URI=https://keycloak.k3d-dev.lessingstrasse.org/realms/k3d-dev
+  - LOG_LEVEL=info
