@@ -9,4 +9,4 @@ patches:
 - target:
     kind: Ingress
     name: game-2048
-  path: ingress.yaml
+  path: ingress-patch.yaml

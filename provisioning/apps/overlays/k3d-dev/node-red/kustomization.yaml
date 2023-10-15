@@ -11,4 +11,4 @@ patches:
 - target:
     kind: Ingress
     name: node-red
-  path: ingress.yaml
+  path: ingress-patch.yaml
