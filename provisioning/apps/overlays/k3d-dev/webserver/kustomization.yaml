@@ -3,5 +3,10 @@ kind: Kustomization
 namespace: webserver
 resources:
 - namespace.yaml
-- ingress-k3d.yaml
 - ../../../base/webserver
+
+patches:
+- target:
+    kind: Ingress
+    name: webserver
+  path: ingress.yaml

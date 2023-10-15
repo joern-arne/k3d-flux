@@ -5,6 +5,10 @@ resources:
 - namespace.yaml
 - pv.yaml
 - pvc.yaml
-- -local.yaml
-- ingress-k3d.yaml
 - ../../../base/node-red
+
+patches:
+- target:
+    kind: Ingress
+    name: node-red
+  path: ingress.yaml
