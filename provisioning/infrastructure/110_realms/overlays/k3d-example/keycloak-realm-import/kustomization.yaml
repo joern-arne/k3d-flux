@@ -9,11 +9,6 @@ patches:
 - target:
     kind: KeycloakRealmImport
     name: keycloak-realm-import
-  path: keycloak-realm-import-patch-realm.yaml
-
-- target:
-    kind: KeycloakRealmImport
-    name: keycloak-realm-import
   path: keycloak-realm-import-patch-users.yaml
 
 - target:
