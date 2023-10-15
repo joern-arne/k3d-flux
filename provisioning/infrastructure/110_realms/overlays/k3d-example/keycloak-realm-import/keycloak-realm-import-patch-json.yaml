@@ -1,3 +1,9 @@
+# realm:
+- op: replace
+  path: /spec/realm/realm
+  value: k3d-example
+
+
 # clientId: account
 - op: replace
   path: /spec/realm/clients/0/baseUrl

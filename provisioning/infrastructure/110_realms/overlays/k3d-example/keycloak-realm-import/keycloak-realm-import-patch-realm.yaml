@@ -1,8 +1,0 @@
-apiVersion: k8s.keycloak.org/v2alpha1
-kind: KeycloakRealmImport
-metadata:
-  name: keycloak-realm-import
-spec:
-  keycloakCRName: keycloak
-  realm:
-    realm: k3d-example
