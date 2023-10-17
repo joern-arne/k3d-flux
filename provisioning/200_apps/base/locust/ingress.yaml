@@ -9,7 +9,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-  - host: locust.k3d-dev.lessingstrasse.org
+  - host: << example.com >>
     http:
       paths:
       - path: /
@@ -22,5 +22,5 @@ spec:
 
   tls:
   - hosts:
-    - locust.k3d-dev.lessingstrasse.org
-    secretName: locust.k3d-dev.lessingstrasse.org
+    - << example.com >>
+    secretName: << example.com >>

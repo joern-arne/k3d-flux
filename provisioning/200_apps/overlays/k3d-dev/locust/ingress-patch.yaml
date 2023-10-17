@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: locust.k3d-dev.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - locust.k3d-dev.lessingstrasse.org
+    secretName: locust.k3d-dev.lessingstrasse.org
