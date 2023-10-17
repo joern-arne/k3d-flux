@@ -3,8 +3,17 @@ kind: Kustomization
 namespace: locust
 resources:
 - namespace.yaml
-- scripts-cm.yaml
 - service.yaml
 - ingress.yaml
 - deployment-master.yaml
 - deployment-slave.yaml
+
+
+configMapGenerator:
+- name: scripts-cm
+  files:
+  - locustfile.py
+
+- name: locust-env-cm
+  literals:
+  - LOCUST_HOST=http://whoami-svc.whoami.svc.cluster.local
