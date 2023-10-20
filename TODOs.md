@@ -1,7 +1,5 @@
 # TODOs
 
-https://github.com/thomseddon/traefik-forward-auth/issues/11
-
 # Current TODO
 * configure keycloak-realm-operator on k3d-example
   * continue at [step 4](https://github.com/keycloak/keycloak-realm-operator) - Create resources for the Realm Operator to tell it where the external Keycloak lives
@@ -32,3 +30,6 @@ https://github.com/thomseddon/traefik-forward-auth/issues/11
   * longhorn
   * [openebs mayastor](https://github.com/openebs/mayastor)
 
+
+# In case of issues
+* https://github.com/thomseddon/traefik-forward-auth/issues/11
