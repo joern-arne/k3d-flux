@@ -1,8 +1,5 @@
 # TODOs
 
-https://github.com/keycloak/keycloak/issues/10464
-https://qdnqn.com/how-to-configure-traefik-on-k3s/
-
 https://github.com/thomseddon/traefik-forward-auth/issues/11
 
 # Current TODO
