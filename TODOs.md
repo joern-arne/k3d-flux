@@ -32,5 +32,4 @@
 
 
 # In case of issues
-
 * https://github.com/thomseddon/traefik-forward-auth/issues/11
