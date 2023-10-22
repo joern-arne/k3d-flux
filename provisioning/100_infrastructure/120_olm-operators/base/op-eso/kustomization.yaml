@@ -4,3 +4,4 @@ namespace: op-eso
 resources:
 - namespace.yaml
 - operator-group.yaml
+- catalog-source.yaml
