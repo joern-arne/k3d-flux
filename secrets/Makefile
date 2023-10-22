@@ -39,7 +39,6 @@ vault-create:
 	@echo "----------"
 
 
-
 .PHONY: vault-config
 vault-config:
 	@echo "Prepare vault secrets for 1Password-Operator deployment"
