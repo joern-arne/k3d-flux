@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: locust
+resources:
+- ../../../base/locust
+
+patches:
+- target:
+    kind: Ingress
+    name: locust
+  path: ingress-patch.yaml
+
+configMapGenerator:
+- name: scripts-cm
+  files:
+  - locustfile.py
+
+- name: locust-env-cm
+  literals:
+  - LOCUST_HOST=http://whoami-svc.whoami.svc.cluster.local
+
