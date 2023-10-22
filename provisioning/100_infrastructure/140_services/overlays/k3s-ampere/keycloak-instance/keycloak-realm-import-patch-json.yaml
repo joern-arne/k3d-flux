@@ -1,0 +1,26 @@
+# realm:
+- op: replace
+  path: /spec/realm/realm
+  value: ampere
+
+
+# clientId: account
+- op: replace
+  path: /spec/realm/clients/0/baseUrl
+  value: /realms/ampere/account/
+
+- op: replace
+  path: /spec/realm/clients/0/redirectUris
+  value:
+  - /realms/ampere/account/*
+
+
+# clientId: account-console
+- op: replace
+  path: /spec/realm/clients/1/baseUrl
+  value: /realms/ampere/account/
+
+- op: replace
+  path: /spec/realm/clients/1/redirectUris
+  value:
+  - /realms/ampere/account/*

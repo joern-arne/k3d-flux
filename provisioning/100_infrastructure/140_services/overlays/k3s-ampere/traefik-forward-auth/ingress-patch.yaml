@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: auth.ampere.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - auth.ampere.lessingstrasse.org
+    secretName: auth.ampere.lessingstrasse.org

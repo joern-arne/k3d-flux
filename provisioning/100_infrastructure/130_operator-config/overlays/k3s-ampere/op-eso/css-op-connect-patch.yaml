@@ -1,0 +1,4 @@
+- op: replace
+  path: /spec/provider/onepassword/vaults
+  value:
+    k3d-example: 1

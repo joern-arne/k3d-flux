@@ -1,0 +1,21 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: op-keycloak
+resources:
+- ../../../base/traefik-forward-auth
+
+patches:
+- target:
+    kind: Ingress
+    name: traefik-forward-auth
+  path: ingress-patch.yaml
+
+configMapGenerator:
+- name: traefik-forward-auth
+  behavior: merge
+  literals:
+  - COOKIE_DOMAIN=ampere.lessingstrasse.org
+  - DOMAINS=ampere.lessingstrasse.org
+  - AUTH_HOST=auth.ampere.lessingstrasse.org
+  - PROVIDER_URI=https://keycloak.ampere.lessingstrasse.org/realms/ampere
+  - LOG_LEVEL=info
