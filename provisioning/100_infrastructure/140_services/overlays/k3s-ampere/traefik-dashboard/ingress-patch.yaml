@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: traefik.ampere.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - traefik.ampere.lessingstrasse.org
+    secretName: traefik.ampere.lessingstrasse.org

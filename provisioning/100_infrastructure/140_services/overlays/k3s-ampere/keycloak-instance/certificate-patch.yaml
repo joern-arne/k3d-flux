@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: keycloak
+spec:
+  secretName: keycloak.ampere.lessingstrasse.org
+  dnsNames:
+  - keycloak.ampere.lessingstrasse.org

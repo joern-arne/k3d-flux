@@ -3,8 +3,10 @@ kind: Kustomization
 namespace: whoami
 resources:
 - namespace.yaml
-- ingress-k3d.yaml
 - ../../../base/whoami
-# replicas:
-# - name: whoami-deployment
-#   count: 3
+
+patches:
+- target:
+    kind: Ingress
+    name: whoami
+  path: ingress-patch.yaml
