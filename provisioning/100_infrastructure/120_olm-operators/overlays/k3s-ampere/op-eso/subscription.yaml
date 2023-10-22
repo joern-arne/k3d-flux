@@ -5,6 +5,6 @@ metadata:
 spec:
   channel: stable
   name: external-secrets-operator
-  source: operatorhubio-catalog
+  source: external-secrets-operator-catalog
   sourceNamespace: olm
   installPlanApproval: Automatic
