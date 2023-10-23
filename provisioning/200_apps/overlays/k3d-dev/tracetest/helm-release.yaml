@@ -1,0 +1,25 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tracetest
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: tracetest
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: kubeshop
+      interval: 12h
+
+  values:
+    operator:
+      create: false
+      token:
+        name: onepassword-token-kustomize
+        key: token
+    connect:
+      create: true
+      credentialsName: op-credentials-kustomize
+      credentialsKey: 1password-credentials.json
