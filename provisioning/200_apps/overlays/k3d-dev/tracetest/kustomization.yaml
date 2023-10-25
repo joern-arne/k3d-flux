@@ -8,5 +8,5 @@ resources:
 patches:
 - target:
     kind: Ingress
-    name: whoami
+    name: tracetest
   path: ingress-patch.yaml
