@@ -1,0 +1,10 @@
+- op: replace
+  path: /spec/rules/0/host
+  value: tracetest.k3d-dev.lessingstrasse.org
+
+- op: replace
+  path: /spec/tls
+  value:
+  - hosts:
+    - tracetest.k3d-dev.lessingstrasse.org
+    secretName: tracetest.k3d-dev.lessingstrasse.org

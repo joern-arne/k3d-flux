@@ -8,7 +8,7 @@ spec:
   retryInterval: 1m
   timeout: 5m
   dependsOn:
-  - name: 113-olm-services
+  - name: 153-olm-services
   sourceRef:
     kind: GitRepository
     name: flux-system
