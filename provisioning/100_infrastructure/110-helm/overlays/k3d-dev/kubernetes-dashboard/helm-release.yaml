@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kubernetes-dashboard
+spec:
+  interval: 1h
+  chart:
+    spec:
+      chart: kubernetes-dashboard
+      version: "*"
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-dashboard
+      interval: 12h
