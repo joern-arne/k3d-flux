@@ -8,4 +8,4 @@ resources:
 # - game-2048
 # - icinga
 - tracetest
-- jaeger
+# - jaeger
