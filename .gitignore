@@ -1,4 +1,5 @@
 .vscode
+.venv
 registries/
 
 k3s-ingress/k3d-dev/kustomization.yaml

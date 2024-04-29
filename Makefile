@@ -56,11 +56,11 @@ cluster-delete: disable-ingress
 
 .PHONY: enable-ingress
 enable-ingress:
-	@$(MAKE) -C k3s-ingress enable-ingress
+	-@$(MAKE) -C k3s-ingress enable-ingress
 
 .PHONY: disable-ingress
 disable-ingress:
-	@$(MAKE) -C k3s-ingress disable-ingress
+	-@$(MAKE) -C k3s-ingress disable-ingress
 
 
 ###
