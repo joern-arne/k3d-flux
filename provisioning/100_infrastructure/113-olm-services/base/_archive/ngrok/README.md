@@ -3,8 +3,8 @@
 [keycloak and ngrok](https://gist.github.com/rafi/ec8c584e3a3a3c898903a714c2d62976)
 
 ```zsh
-export NGROK_API_KEY=<NGROK_API_KEY>
-export NGROK_AUTHTOKEN=<NGROK_AUTHTOKEN>
+export NGROK_API_KEY=<YOUR_NGROK_API_KEY>
+export NGROK_AUTHTOKEN=<YOUR_NGROK_AUTHTOKEN>
 export NAMESPACE=ngrok-ingress-controller
 
 # kubectl apply -f
@@ -38,8 +38,8 @@ helm install ngrok-ingress-controller ngrok/kubernetes-ingress-controller \
 **values.yaml**
 ```yaml
 credentials:
-  # apiKey: <NGROK_API_KEY>
-  # authtoken: <NGROK_AUTHTOKEN>
+  # apiKey: <YOUR_NGROK_API_KEY>
+  # authtoken: <YOUR_NGROK_AUTHTOKEN>
   secret:
     name: ngrok-ingress-controller-credentials
 ```
