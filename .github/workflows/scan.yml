@@ -1,0 +1,24 @@
+name: On-Demand Secret Scan
+
+on:
+  workflow_dispatch: # Enables manual trigger from the Actions tab
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  trufflehog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetches full history so past commits can be scanned
+
+      - name: Run TruffleHog OSS
+        uses: trufflesecurity/trufflehog@main
+        with:
+          path: ./
+          base: ${{ github.event.repository.default_branch }}
+          head: HEAD
+          extra_args: --only-verified
